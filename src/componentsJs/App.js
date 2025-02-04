@@ -1,15 +1,33 @@
+import React from 'react';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import '../componentsCss/App.css';
 
+import Home from "./Home";
+import Intro from "./Intro";
+import Header from "./Header";
+import IntroText from "./IntroText";
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Header/>
+            <Routes>
+                <Route path="/" element={<Intro/>} />
+                <Route path="/IntroText" element={<IntroText/>} />
+                <Route path="/home" element={<Home/>} />
+            </Routes>
+        </div>
+    );
 }
 
-export default App;
+
+function AppWrapper() {
+    return (
+        <Router>
+            <App />
+        </Router>
+    );
+}
+
+
+export default AppWrapper;
