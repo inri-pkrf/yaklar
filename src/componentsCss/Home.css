@@ -17,11 +17,51 @@
     font-family: 'Karantina';
     font-size: 17vw;
     color:#175a85;
-    margin-top: 18vh;
+    margin-top: 12vh;
     width: 90%;
     text-align: center;
 }
 
+.home-text{
+    font-family: 'Heebo', sans-serif;
+    font-size: 4.7vw;
+    color: grey;
+    text-align: center;
+    position: absolute;
+    margin-top: 35vh;
+    right: 50%;
+    direction: rtl;
+    transform: translateX(50%);
+    width: 92vw;
+}
+
+.flexBox {
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    margin-top: 63vh;
+    display: flex
+;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 90vw;
+}
+
+.boxClose {
+    width: 42vw;
+    height: auto;
+}
+
+.flexBox img:nth-child(1),
+.flexBox img:nth-child(2) {
+    order: 1;
+}
+
+.flexBox img:nth-child(3),
+.flexBox img:nth-child(4) {
+    order: 2;
+}
 
 
 
