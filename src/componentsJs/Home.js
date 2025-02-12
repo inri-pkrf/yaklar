@@ -2,18 +2,21 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../componentsCss/Home.css';
 
-
 function Home() {
     const navigate = useNavigate();
+
+    const boxTexts = ["יכולות", "תפקידים", "שולחן עגול", "מרס\"ל"];
+    const navArray = ["/abilities", "/roles", "/table", "/marsel"];
+
+
+
     return (
-
         <div className="Home">
-
             <div className="title">
                 לומדת
                 <br />
                 מש"ק התנדבות ביקל"ר
-            </div >
+            </div>
 
             <div className="home-text">
                 יש ללחוץ ולעבור על התוכן בכל קופסא בכדי להעשיר את ארגז הכלים שלכם לפעולה. יש להתקדם לפי הסדר כדי לחשוף את התכנים.
@@ -22,25 +25,37 @@ function Home() {
             </div>
 
             <div className="flexBox">
-
-                {[...Array(4)].map((_, index) => (
-                    <img
-                        key={index}
-                        src={process.env.PUBLIC_URL + '/assests/imgs/boxClose.png'}
-                        className="boxClose"
-                        alt="boxClose"
-                    />
+                {boxTexts.map((text, index) => (
+                    <div key={index} className="boxContainer"
+                        onClick={() => navigate(navArray[index])}
+                    >
+                        <img
+                            src={process.env.PUBLIC_URL + '/assests/imgs/boxClose.png'}
+                            className="boxClose"
+                            alt="boxClose"
+                        />
+                        <span
+                            className="boxText"
+                            style={text === "שולחן עגול" ? { marginTop: "8vh" } : {}}
+                        >
+                            {text}
+                        </span>
+                    </div>
                 ))}
             </div>
+            <img
+                src={process.env.PUBLIC_URL + '/assests/imgs/SboxClose.png'}
+                className="SboxClose"
+                alt="SboxClose"
+            />
+            <span className="SboxText">
+                סימולציה
+            </span>
 
-            {/* <div className="flexBox">
-                <img src={process.env.PUBLIC_URL + '/assests/imgs/boxClose.png'} className="boxClose" alt="boxClose" />
-            </div> */}
-
+            <div className='marginBottom'></div>
 
         </div>
-    )
+    );
 }
-
 
 export default Home;

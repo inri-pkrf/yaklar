@@ -6,6 +6,11 @@ import Home from "./Home";
 import Intro from "./Intro";
 import Header from "./Header";
 import IntroText from "./IntroText";
+import Roles from "./Roles";
+import Abilities from "./Abilities";
+import Marsel from "./Marsel";
+import Table from "./Table";
+import Simulation from "./Simulation";
 
 function App() {
     return (
@@ -15,6 +20,11 @@ function App() {
                 <Route path="/" element={<Intro/>} />
                 <Route path="/IntroText" element={<IntroText/>} />
                 <Route path="/home" element={<Home/>} />
+                <Route path="/roles" element={<Roles/>} />
+                <Route path="/abilities" element={<Abilities/>} />
+                <Route path="/marsel" element={<Marsel/>} />
+                <Route path="/table" element={<Table/>} />
+                <Route path="/simulation" element={<Simulation/>} />
             </Routes>
         </div>
     );

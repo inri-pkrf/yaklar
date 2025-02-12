@@ -15,6 +15,7 @@ function IntroText() {
                 </div>
 
                 <div className='text-intro-div'>
+                    <div className='title-div'></div>
 
                     <div className="text-intro">
                         בעזרת מוצר זה תוכלו ללמוד על מיצוי היכולות במרחב האזרחי, כדי לספק מענה מקיף ומהיר לפערים העולים מהרשות המקומית שלך.
@@ -49,6 +50,8 @@ function IntroText() {
 
 
             </div>
+
+            <div className='marginBottom'></div>
 
 
         </div>

@@ -40,8 +40,7 @@
     right: 50%;
     transform: translateX(50%);
     margin-top: 63vh;
-    display: flex
-;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
@@ -63,7 +62,48 @@
     order: 2;
 }
 
+.boxText {
+    font-family: 'Karantina';
+    position: absolute;
+    color: white;
+    font-size: 9vw;
+    text-align: center;
+    margin-left: -20vh;
+    margin-top: 10vh;
+    width: 20vw;
+}
 
+.SboxClose{
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    margin-top: 111vh;
+    height: auto;
+    width: 88vw;
+}
+
+.SboxText{
+    right: 50%;
+    transform: translateX(50%);
+    margin-top: 123.3vh;
+    margin-right: 2vh;
+    font-family: 'Karantina';
+    position: absolute;
+    color: white;
+    font-size: 9vw;
+    text-align: center;
+}
+
+
+.marginBottom{
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    margin-top: 139vh;
+    width: 100vw;
+    height: 5vh;
+    background-color: transparent;
+}
 
 
 

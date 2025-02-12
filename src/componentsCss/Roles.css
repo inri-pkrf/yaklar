@@ -1,0 +1,101 @@
+.Roles {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh; /* Ensure the entire screen is used */
+    background-color: #f2e5dd;
+    overflow-y: auto;
+}
+
+.title1 {
+    font-family: 'Karantina';
+    font-size: 10.8vw;
+    color: #175a85;
+    margin-top: 15vh;
+    text-align: center;
+}
+
+.text-continer-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 94vw;
+    background-color: #e3d4c8;
+    border-radius: 107px 107px 0 0;
+    flex-grow: 1; 
+    padding-bottom: 10vh; 
+    top: 3vh;
+    position: relative;
+}
+
+.text-div-body {
+    font-family: 'Heebo', sans-serif;
+    font-size: 4.7vw;
+    color: grey;
+    text-align: right;
+    width: 86vw;
+    padding: 5vw;
+    position: relative;
+    margin-top: 4vh;
+    min-height: 0;
+    direction: rtl;
+}
+
+.title-div-body, .logos, .title2 {
+    width: 100%;
+    text-align: center;
+}
+
+.title-div-body{
+    width: 94vw;
+    height: 17vh;
+    background-color: #d6c5b6;
+    border-radius: 107vw 107vw 0 0;
+}
+
+
+.logos {
+    height: auto;
+    width: 10vw;
+    margin-top: -15vh;
+}
+
+.title2 {
+    font-family: 'Karantina';
+    font-size: 10vw;
+    color: black;
+    margin-top: 1vh;
+    direction: rtl;
+}
+
+.btns-div {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 90%;
+    padding: 2vh 10vw;
+    margin-top: auto; /* Ensure buttons are at the bottom */
+}
+
+.btns-text {
+    font-family: 'Karantina';
+    color: #175a85;
+    font-size: 5vmin;
+    position: relative;
+}
+
+.btns {
+    height: auto;
+    width: 10vw;
+    display: flex;
+}
+
+#btn-next-img {
+    transform: rotate(180deg);
+}
+
+#btn-prev-img {
+    transform: rotate(0deg);
+}
