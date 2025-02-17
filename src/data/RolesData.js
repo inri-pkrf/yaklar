@@ -72,7 +72,35 @@ const RolesData = [
         ],
 
     },
-
+    {
+        id: 3,
+        logoSrc: `${process.env.PUBLIC_URL}/assests/imgs/logos/iteration.png`,
+        title: "שיטה:",
+        text: [
+            <>
+                  <ul>
+                    <li>
+                    סיוע לרשות במיפוי היכולות
+                    </li>
+                    <li>
+                    עבודת מטה רשותית (הערכת מצב)
+                    </li>
+                    <li>
+                    ריכוז צרכים ופערים ברשות
+                    </li>
+                    <li>
+                    מיפוי ומיצוי יכולות הרשות לצרכים / פערים
+                    </li>
+                    <li>
+                    העלאת דרישה לנפה במערכת
+                    </li>
+                    <li>
+                    קבלת איזון חוזר
+                    </li>
+                </ul>
+            </>
+        ],
+    },
 ]
 
 export default RolesData;
