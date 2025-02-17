@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/yaklar/static/css/main.d6f7033d.css",
-    "main.js": "/yaklar/static/js/main.2746b492.js",
+    "main.js": "/yaklar/static/js/main.ee514e3f.js",
     "static/js/488.65243292.chunk.js": "/yaklar/static/js/488.65243292.chunk.js",
     "static/media/Bg1.png": "/yaklar/static/media/Bg1.ac9f9c75b406e10ae608.png",
     "index.html": "/yaklar/index.html",
     "main.d6f7033d.css.map": "/yaklar/static/css/main.d6f7033d.css.map",
-    "main.2746b492.js.map": "/yaklar/static/js/main.2746b492.js.map",
+    "main.ee514e3f.js.map": "/yaklar/static/js/main.ee514e3f.js.map",
     "488.65243292.chunk.js.map": "/yaklar/static/js/488.65243292.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d6f7033d.css",
-    "static/js/main.2746b492.js"
+    "static/js/main.ee514e3f.js"
   ]
 }
