@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../componentsCss/Cards.css';
 
 function Cards({ data, title }) {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [userAnswers, setUserAnswers] = useState({}); // Store user selections
-
+    const [userAnswers, setUserAnswers] = useState({}); 
     const currentItem = data[currentIndex];
+    const navigate = useNavigate();
+
 
     const handleNext = () => {
-        if (currentIndex < data.length - 1) {
-            setCurrentIndex(currentIndex + 1);
+        if (isQuiz && isCorrectAnswer) {
+            navigate('/home'); 
+        } else if (currentIndex < data.length - 1) {
+            setCurrentIndex(currentIndex + 1); 
         }
     };
 
@@ -29,18 +33,25 @@ function Cards({ data, title }) {
     const getExplanation = () => {
         if (userAnswers[currentIndex] !== undefined) {
             if (userAnswers[currentIndex] === currentItem.correctAnswer) {
-                return currentItem.explanationRight; 
+                return currentItem.explanationRight;
             } else {
-                return currentItem.explanationWrong; 
+                return currentItem.explanationWrong;
             }
         }
-        return null; 
+        return null;
     };
+
+    // Check if the user selected the correct answer
+    const isCorrectAnswer = userAnswers[currentIndex] === currentItem.correctAnswer;
+    const isQuiz = currentItem.question;  // Check if the current item is a quiz
+
+    // Hide the next button if the answer is wrong or no answer is selected
+    const hideNextButton = isQuiz && (userAnswers[currentIndex] === undefined || !isCorrectAnswer);
 
     return (
         <div className="Cards">
             <div className="title1">{title}</div>
-            
+
             <div className="text-continer-body">
                 <div className='title-div-body'></div>
                 <img src={currentItem.logoSrc} className="logos" alt="logos" />
@@ -48,18 +59,18 @@ function Cards({ data, title }) {
 
                 {currentItem.text ? (
                     <div className='text-div-body'>{currentItem.text}</div>
-                ) : currentItem.question ? (
+                ) : isQuiz ? (
                     <div className="quiz-container">
                         <div className="question">{currentItem.question}</div>
                         <div className="answers">
                             {currentItem.answers.map((answer, index) => (
-                                <div 
-                                    key={index} 
+                                <div
+                                    key={index}
                                     className={`answer-item ${
                                         userAnswers[currentIndex] === index
                                             ? index === currentItem.correctAnswer
-                                                ? 'rightanswer' 
-                                                : 'wronganswer' 
+                                                ? 'rightanswer'
+                                                : 'wronganswer'
                                             : ''
                                     }`}
                                     onClick={() => handleAnswerClick(index)}
@@ -73,9 +84,27 @@ function Cards({ data, title }) {
                 ) : null}
 
                 <div className='btns-div'>
-                    <div className={`btn-next-div ${currentIndex === data.length - 1 ? 'hidden' : ''}`} onClick={handleNext}>
-                        <div className='btns-text' id='btn-next-text'>הבא</div>
-                        <img src={process.env.PUBLIC_URL + '/assests/imgs/right.png'} className="btns" id="btn-next-img" alt="btn-next" />
+                    <div
+                        className={`btn-next-div ${hideNextButton ? 'hidden' : ''}`}
+                        onClick={handleNext}
+                    >
+                        <div
+                            className='btns-text'
+                            id='btn-next-text'
+                            style={{
+                                color: isCorrectAnswer && isQuiz ? '#1cb4e3' : '', // Change text color to green when correct in quiz
+                            }}
+                        >
+                            {isQuiz && isCorrectAnswer ? 'לעמוד הבית' : 'הבא'}
+                        </div>
+                        <img
+                            src={isQuiz && isCorrectAnswer
+                                ? `${process.env.PUBLIC_URL}/assests/imgs/right (1).png`
+                                : `${process.env.PUBLIC_URL}/assests/imgs/right.png`}
+                            className="btns"
+                            id="btn-next-img"
+                            alt="btn-next"
+                        />
                     </div>
 
                     <div className={`btn-prev-div ${currentIndex === 0 ? 'hidden' : ''}`} onClick={handlePrev}>
