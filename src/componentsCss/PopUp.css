@@ -1,0 +1,66 @@
+.popup-overlay {
+    background: #000000b3;
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 2000;
+  }
+  
+  .popup-content {
+    background:#e2d4c8;
+    border-radius: 12vw;
+    height: 74vh;
+    overflow-y: auto;
+    padding: 2vw;
+    position: absolute;
+    top: 15vh;
+    left: 8vw;
+    width: 80vw;
+    overflow: hidden;
+  }
+  
+  .XBtn {
+    position: absolute;
+    top: 5vw;
+    left: 5vw;
+    background: none;
+    border: none;
+    width: 8vw;
+  }
+  
+  .popup-close-button {
+    border: none;
+    background-color: transparent;
+  }
+  
+  .popup-title {
+    font-family: 'Karantina';
+    font-weight: normal;
+    color: black;
+    font-size: 15vw;
+    margin-bottom: 7vw;
+    margin-top: 1vw;
+    margin-left: 4vw;
+    margin-right: 4vw;
+    text-align: center;
+  }
+  
+  .popup-body {
+    font-size: 4.5vw;
+    direction: ltr;
+    margin-right: 1.5vh;
+    text-align: right;
+    margin-left: 1.5vh;
+    height: 49vh;
+    margin-bottom: 1vh;
+    overflow: auto;
+    width: 74.5vw;
+    color: #5d5b5b;
+    line-height: 4vh;
+  }
+  
+  .popup-body-text {
+    direction: rtl;
+  }

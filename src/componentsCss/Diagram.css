@@ -1,0 +1,63 @@
+.text-diagram {
+    font-family: 'Heebo', sans-serif;
+    font-size: 4.7vw;
+    color: grey;
+    text-align: center;
+    width: 86vw;
+    padding: 5vw;
+    position: relative;
+    margin-top: 4vh;
+    min-height: 0;
+    direction: rtl;
+}
+
+.marselLogo{
+    width: 25vw;
+    height: auto;
+    position: absolute;
+    top: 35vh;
+    right: 15vw;
+    rotate: 30deg;
+}
+
+.diagram-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3vh; /* Adjusted spacing */
+    margin-top: 20px;
+}
+
+.diagram-item-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh; /* Space between the item and the arrow */
+}
+
+.diagram-item {
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #f2903f;
+    background: none;
+    padding: 10px;
+    text-align: center;
+    border-radius: 2vh;
+    font-family: 'Karantina';
+    color: #f2903f;
+    font-size: 8vmin;
+}
+
+.up-arrow {
+    width: 30px; 
+    height: auto;
+}
+
+.readDiv {
+    background-color:  #f2903f; 
+    border: 2px solid  #f2903f; 
+    color: white;
+}

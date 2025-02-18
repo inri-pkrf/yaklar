@@ -1,26 +1,10 @@
+
 import React from 'react';
-import '../componentsCss/Abilities.css';
+import Cards from '../componentsJs/Cards';
+import AbilitiesData from "../data/AbilitiesData";
 
 function Abilities() {
-
-    return (
-        <div className="Abilities">
-            <div className="title1">
-            תהליך מבצעי מיצוי יכולות 
-            <br/>
-            במרחב האזרחי
-            </div>
-            <div className="text-continer-body">
-                <div className='title-div-body'></div>
-                <div className="title2"> מטרה </div>
-
-            </div>
-
-        </div>
-
-
-
-    );
+    return <Cards data={AbilitiesData} title='תהליך מבצעי מיצוי יכולות במרחב האזרחי' dataType="AbilitiesData"/>;
 }
 
 export default Abilities;

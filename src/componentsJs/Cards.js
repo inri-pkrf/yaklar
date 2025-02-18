@@ -1,32 +1,41 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Diagram from '../componentsJs/Diagram';
 import '../componentsCss/Cards.css';
 
-function Cards({ data, title }) {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [userAnswers, setUserAnswers] = useState({}); 
-    const currentItem = data[currentIndex];
+function Cards({ data, title, dataType }) {
     const navigate = useNavigate();
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [userAnswers, setUserAnswers] = useState({});
+    const currentItem = data[currentIndex];
+
+    const isCorrectAnswer = userAnswers[currentIndex] === currentItem.correctAnswer;
+    const isQuiz = currentItem.question;
+    const hideNextButton = isQuiz && (userAnswers[currentIndex] === undefined || !isCorrectAnswer);
 
 
     const handleNext = () => {
         if (isQuiz && isCorrectAnswer) {
-            navigate('/home'); 
+            navigate('/home');
         } else if (currentIndex < data.length - 1) {
-            setCurrentIndex(currentIndex + 1); 
+            setCurrentIndex(currentIndex + 1);
+            // window.scrollTo(0, 0);
+            // window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     };
 
     const handlePrev = () => {
         if (currentIndex > 0) {
             setCurrentIndex(currentIndex - 1);
+            // window.scrollTo(0, 0);
+            // window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     };
 
     const handleAnswerClick = (index) => {
         setUserAnswers(prev => ({
             ...prev,
-            [currentIndex]: index, // Save selected answer for this question
+            [currentIndex]: index,
         }));
     };
 
@@ -41,12 +50,6 @@ function Cards({ data, title }) {
         return null;
     };
 
-    // Check if the user selected the correct answer
-    const isCorrectAnswer = userAnswers[currentIndex] === currentItem.correctAnswer;
-    const isQuiz = currentItem.question;  // Check if the current item is a quiz
-
-    // Hide the next button if the answer is wrong or no answer is selected
-    const hideNextButton = isQuiz && (userAnswers[currentIndex] === undefined || !isCorrectAnswer);
 
     return (
         <div className="Cards">
@@ -57,7 +60,9 @@ function Cards({ data, title }) {
                 <img src={currentItem.logoSrc} className="logos" alt="logos" />
                 <div className="title2">{currentItem.title}</div>
 
-                {currentItem.text ? (
+                {dataType === 'AbilitiesData' && currentItem.id === 5 ? (
+                    <Diagram />
+                ) : currentItem.text ? (
                     <div className='text-div-body'>{currentItem.text}</div>
                 ) : isQuiz ? (
                     <div className="quiz-container">
@@ -66,13 +71,12 @@ function Cards({ data, title }) {
                             {currentItem.answers.map((answer, index) => (
                                 <div
                                     key={index}
-                                    className={`answer-item ${
-                                        userAnswers[currentIndex] === index
-                                            ? index === currentItem.correctAnswer
-                                                ? 'rightanswer'
-                                                : 'wronganswer'
-                                            : ''
-                                    }`}
+                                    className={`answer-item ${userAnswers[currentIndex] === index
+                                        ? index === currentItem.correctAnswer
+                                            ? 'rightanswer'
+                                            : 'wronganswer'
+                                        : ''
+                                        }`}
                                     onClick={() => handleAnswerClick(index)}
                                 >
                                     {answer}
