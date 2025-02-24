@@ -5,8 +5,8 @@ import RolesData from "../data/RolesData";
 function Roles() {
     const updateCompleted = (index) => {
         const completed = JSON.parse(localStorage.getItem('completed')) || [false, false, false, false];
-        completed[index] = true; // Mark the subject as completed
-        localStorage.setItem('completed', JSON.stringify(completed)); // Save to localStorage
+        completed[index] = true; 
+        localStorage.setItem('completed', JSON.stringify(completed)); 
     };
     
 

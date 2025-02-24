@@ -4,16 +4,13 @@ import AbilitiesData from "../data/AbilitiesData";
 
 function Abilities() {
     const updateCompleted = (index) => {
-        // Retrieve the current state of completed subjects from localStorage
         const completed = JSON.parse(localStorage.getItem('completed')) || [false, false, false, false];
-        completed[index] = true; // Mark the subject as completed
-        localStorage.setItem('completed', JSON.stringify(completed)); // Save the updated state back to localStorage
+        completed[index] = true; 
+        localStorage.setItem('completed', JSON.stringify(completed)); 
     };
 
-    // Ensure the initial state is set when the component loads
     useEffect(() => {
         if (!localStorage.getItem('completed')) {
-            // If no progress is stored yet, initialize it
             localStorage.setItem('completed', JSON.stringify([false, false, false, false]));
         }
     }, []);
@@ -24,7 +21,7 @@ function Abilities() {
             title='תהליך מבצעי מיצוי יכולות במרחב האזרחי' 
             dataType="AbilitiesData" 
             updateCompleted={updateCompleted} 
-            index={0} // Assuming this is the first subject, adjust if needed
+            index={0} 
         />
     );
 }
