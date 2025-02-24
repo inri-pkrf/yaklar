@@ -47,7 +47,7 @@ const AbilitiesData = [
     },
     {
         id: 5,
-        logoSrc: `${process.env.PUBLIC_URL}/assests/imgs/logos/map.png`,
+        logoSrc: `${process.env.PUBLIC_URL}/assests/imgs/logos/track.png`,
         title: "ציר אורכי:",
     },
     {

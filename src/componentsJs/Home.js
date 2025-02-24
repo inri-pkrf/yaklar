@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../componentsCss/Home.css';
 
 function Home() {
     const navigate = useNavigate();
+    const [completed, setCompleted] = useState([false, false, false, false]); // Default state
+
+    // Load the completion state from localStorage
+    useEffect(() => {
+        const storedCompleted = JSON.parse(localStorage.getItem('completed'));
+        if (storedCompleted) {
+            setCompleted(storedCompleted); // Set the completed subjects from localStorage
+        }
+    }, []); // Only run once on component mount
 
     const boxTexts = ["יכולות", "תפקידים", "שולחן עגול", "מרס\"ל"];
     const navArray = ["/abilities", "/roles", "/table", "/marsel"];
-
-
 
     return (
         <div className="Home">
@@ -26,11 +33,13 @@ function Home() {
 
             <div className="flexBox">
                 {boxTexts.map((text, index) => (
-                    <div key={index} className="boxContainer"
+                    <div
+                        key={index}
+                        className="boxContainer"
                         onClick={() => navigate(navArray[index])}
                     >
                         <img
-                            src={process.env.PUBLIC_URL + '/assests/imgs/boxClose.png'}
+                            src={completed[index] ? process.env.PUBLIC_URL + '/assests/imgs/boxOpen.png' : process.env.PUBLIC_URL + '/assests/imgs/boxClose.png'}
                             className="boxClose"
                             alt="boxClose"
                         />
@@ -43,6 +52,7 @@ function Home() {
                     </div>
                 ))}
             </div>
+
             <img
                 src={process.env.PUBLIC_URL + '/assests/imgs/SboxClose.png'}
                 className="SboxClose"
@@ -53,7 +63,6 @@ function Home() {
             </span>
 
             <div className='marginBottom'></div>
-
         </div>
     );
 }

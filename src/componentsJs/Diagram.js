@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../componentsCss/Diagram.css';
 import PopUp from './PopUp';
 
-function Diagram() {
-    const [selectedItem, setSelectedItem] = useState(null); // Track selected item
-    const [readItems, setReadItems] = useState([]); // Track read items
+function Diagram({ onComplete }) { // Accept onComplete prop
+    const [selectedItem, setSelectedItem] = useState(null);
+    const [readItems, setReadItems] = useState([]); 
 
     const diagramItems = ["פיקוד", "מחוז", "נפה", "רשות"];
     const popUpText = [
@@ -26,30 +26,36 @@ function Diagram() {
                 <li>שיח תיאום וסנכרון מול מפקחת מחוזית של משרד הרווחה לקבלת תמ“צ עדכני טרם העברת הבקשה לפיקוד.</li>
             </ul>
         </>,
-         <>
-         <ul>
-             <li>קבלת הדרישות ממפקד היקל“ר ע“ג מערכת המרס“ל</li>
-             <li>גיבוש התיעדוף אל מול כלל הבקשות טרם פורום מיצוי יכולות.</li>
-             <li>ביצוע פורום מיצוי יכולות והצגת המגמות והפתרונות.</li>
-             <li>תבחן ותגבש מענה נפתי תוך סיוע מרשויות שכנות.</li>
-         </ul>
-     </>,
-         <>
-         <ul>
-             <li>מיצוי מערך מתנדבים רשותי בהובלת רכז התנדבות/מחזיק תיק מתנדבים ברשות כחלק מתא משאבי קהילה.</li>
-             <li>הפעלת חפ“ק התנדבות רשותי.</li>
-             <li>הפעלת ועדי יישובים, ועדי שכונות, ועדי הורים / צח“י במוא“ז.</li>
-             <li>הפעלת בני נוער תנועות נוער מתנ“סים ש“ש מכינות קדם צבאיות שירות לאומי.</li>
-             <li>הפעלת פעילים קהילתיים, מובילי דעת קהל, מרכזים קהילתיים.</li>
-             <li>הפעלת הגיל השלישי, מוסדות השכלה גבוהה.</li>
-             <li>הפעלת חוזים נצורים וקשר מול מגזר עסקי ברשות.</li>
-         </ul>
-     </>,
+        <>
+            <ul>
+                <li>קבלת הדרישות ממפקד היקל“ר ע“ג מערכת המרס“ל</li>
+                <li>גיבוש התיעדוף אל מול כלל הבקשות טרם פורום מיצוי יכולות.</li>
+                <li>ביצוע פורום מיצוי יכולות והצגת המגמות והפתרונות.</li>
+                <li>תבחן ותגבש מענה נפתי תוך סיוע מרשויות שכנות.</li>
+            </ul>
+        </>,
+        <>
+            <ul>
+                <li>מיצוי מערך מתנדבים רשותי בהובלת רכז התנדבות/מחזיק תיק מתנדבים ברשות כחלק מתא משאבי קהילה.</li>
+                <li>הפעלת חפ“ק התנדבות רשותי.</li>
+                <li>הפעלת ועדי יישובים, ועדי שכונות, ועדי הורים / צח“י במוא“ז.</li>
+                <li>הפעלת בני נוער תנועות נוער מתנ“סים ש“ש מכינות קדם צבאיות שירות לאומי.</li>
+                <li>הפעלת פעילים קהילתיים, מובילי דעת קהל, מרכזים קהילתיים.</li>
+                <li>הפעלת הגיל השלישי, מוסדות השכלה גבוהה.</li>
+                <li>הפעלת חוזים נצורים וקשר מול מגזר עסקי ברשות.</li>
+            </ul>
+        </>,
     ];
 
     const handleClose = () => {
         if (selectedItem !== null && !readItems.includes(selectedItem)) {
-            setReadItems([...readItems, selectedItem]);
+            const updatedReadItems = [...readItems, selectedItem];
+            setReadItems(updatedReadItems);
+
+            // Check if all popups have been opened
+            if (updatedReadItems.length === diagramItems.length) {
+                onComplete(); // Notify Cards.js
+            }
         }
         setSelectedItem(null);
     };

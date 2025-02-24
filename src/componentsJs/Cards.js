@@ -3,11 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import Diagram from '../componentsJs/Diagram';
 import '../componentsCss/Cards.css';
 
-function Cards({ data, title, dataType }) {
+function Cards({ data, title, updateCompleted, index, dataType }) {
     const navigate = useNavigate();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [userAnswers, setUserAnswers] = useState({});
     const currentItem = data[currentIndex];
+    const [diagramCompleted, setDiagramCompleted] = useState(false);
+    const isLastItem = currentIndex === data.length - 1;
 
     const isCorrectAnswer = userAnswers[currentIndex] === currentItem.correctAnswer;
     const isQuiz = currentItem.question;
@@ -15,19 +17,21 @@ function Cards({ data, title, dataType }) {
 
 
     const handleNext = () => {
-        if (isQuiz && isCorrectAnswer) {
-            navigate('/home');
-        } else if (currentIndex < data.length - 1) {
+        if (isLastItem) {
+            if (typeof updateCompleted === 'function') {
+                updateCompleted(index);
+            }
+            navigate('/home'); 
+        } else {
             setCurrentIndex(currentIndex + 1);
-            // window.scrollTo(0, 0);
-            // window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo(0, 0);
         }
     };
 
     const handlePrev = () => {
         if (currentIndex > 0) {
             setCurrentIndex(currentIndex - 1);
-            // window.scrollTo(0, 0);
+            window.scrollTo(0, 0);
             // window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     };
@@ -50,6 +54,9 @@ function Cards({ data, title, dataType }) {
         return null;
     };
 
+    const handleDiagramComplete = () => {
+        setDiagramCompleted(true);
+    };
 
     return (
         <div className="Cards">
@@ -61,7 +68,7 @@ function Cards({ data, title, dataType }) {
                 <div className="title2">{currentItem.title}</div>
 
                 {dataType === 'AbilitiesData' && currentItem.id === 5 ? (
-                    <Diagram />
+                    <Diagram onComplete={() => setDiagramCompleted(true)} />
                 ) : currentItem.text ? (
                     <div className='text-div-body'>{currentItem.text}</div>
                 ) : isQuiz ? (
@@ -89,14 +96,14 @@ function Cards({ data, title, dataType }) {
 
                 <div className='btns-div'>
                     <div
-                        className={`btn-next-div ${hideNextButton ? 'hidden' : ''}`}
+                        className={`btn-next-div ${(hideNextButton || (dataType === 'AbilitiesData' && currentItem.id === 5 && !diagramCompleted)) ? 'hidden' : ''}`}
                         onClick={handleNext}
                     >
                         <div
                             className='btns-text'
                             id='btn-next-text'
                             style={{
-                                color: isCorrectAnswer && isQuiz ? '#1cb4e3' : '', // Change text color to green when correct in quiz
+                                color: isCorrectAnswer && isQuiz ? '#1cb4e3' : '',
                             }}
                         >
                             {isQuiz && isCorrectAnswer ? 'לעמוד הבית' : 'הבא'}
