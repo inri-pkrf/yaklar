@@ -39,20 +39,19 @@ function Diagram({ onComplete }) {
         </ul>,
     ];
 
-    // On initial render, check if there are any readItems stored
     useEffect(() => {
-        const storedReadItems = JSON.parse(localStorage.getItem('readItems')) || [];
+        const storedReadItems = JSON.parse(localStorage.getItem('readItemsDiagram')) || [];
         setReadItems(storedReadItems);
     }, []);
-
+    
     const handleClose = () => {
         if (selectedItem !== null && !readItems.includes(selectedItem)) {
             const updatedReadItems = [...readItems, selectedItem];
             setReadItems(updatedReadItems);
-            localStorage.setItem('readItems', JSON.stringify(updatedReadItems)); // Store in localStorage
-
+            localStorage.setItem('readItemsDiagram', JSON.stringify(updatedReadItems)); // ✅ Separate storage key
+    
             if (updatedReadItems.length === diagramItems.length) {
-                onComplete(); // Notify Cards.js
+                onComplete();
             }
         }
         setSelectedItem(null);

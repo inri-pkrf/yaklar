@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Diagram from '../componentsJs/Diagram';
+import TableCards from '../componentsJs//TableCards';
 import '../componentsCss/Cards.css';
 
 function Cards({ data, title, updateCompleted, index, dataType }) {
@@ -21,7 +22,7 @@ function Cards({ data, title, updateCompleted, index, dataType }) {
             if (typeof updateCompleted === 'function') {
                 updateCompleted(index);
             }
-            navigate('/home'); 
+            navigate('/home');
         } else {
             setCurrentIndex(currentIndex + 1);
             window.scrollTo(0, 0);
@@ -69,30 +70,47 @@ function Cards({ data, title, updateCompleted, index, dataType }) {
 
                 {dataType === 'AbilitiesData' && currentItem.id === 5 ? (
                     <Diagram onComplete={() => setDiagramCompleted(true)} />
-                ) : currentItem.text ? (
-                    <div className='text-div-body'>{currentItem.text}</div>
-                ) : isQuiz ? (
-                    <div className="quiz-container">
-                        <div className="question">{currentItem.question}</div>
-                        <div className="answers">
-                            {currentItem.answers.map((answer, index) => (
-                                <div
-                                    key={index}
-                                    className={`answer-item ${userAnswers[currentIndex] === index
-                                        ? index === currentItem.correctAnswer
-                                            ? 'rightanswer'
-                                            : 'wronganswer'
-                                        : ''
-                                        }`}
-                                    onClick={() => handleAnswerClick(index)}
-                                >
-                                    {answer}
+                ) : dataType === 'TableData' && currentItem.id === 1 ? (
+                    <TableCards onComplete={() => setDiagramCompleted(true)} />
+                ) : (
+                    <>
+                        {currentItem.text && <div className='text-div-body'>{currentItem.text}</div>}
+
+                        {currentItem.videoSrc && (
+                            <div className="video-container">
+                                <video controls className="video-player">
+                                    <source src={currentItem.videoSrc} type="video/mp4" />
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        )}
+
+                        {isQuiz && (
+                            <div className="quiz-container">
+                                <div className="question">{currentItem.question}</div>
+                                <div className="answers">
+                                    {currentItem.answers.map((answer, index) => (
+                                        <div
+                                            key={index}
+                                            className={`answer-item ${userAnswers[currentIndex] === index
+                                                ? index === currentItem.correctAnswer
+                                                    ? 'rightanswer'
+                                                    : 'wronganswer'
+                                                : ''
+                                                }`}
+                                            onClick={() => handleAnswerClick(index)}
+                                        >
+                                            {answer}
+                                        </div>
+                                    ))}
                                 </div>
-                            ))}
-                        </div>
-                        <div className="explanationAnswer">{getExplanation()}</div>
-                    </div>
-                ) : null}
+                                <div className="explanationAnswer">{getExplanation()}</div>
+                            </div>
+                        )}
+                    </>
+                )}
+
+
 
                 <div className='btns-div'>
                     <div

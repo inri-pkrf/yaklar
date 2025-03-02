@@ -1,23 +1,30 @@
-import React from 'react';
-import '../componentsCss/Table.css';
+
+
+import React, { useEffect } from 'react';
+import Cards from '../componentsJs/Cards';
+import TableData from "../data/TableData";
 
 function Table() {
+    const updateCompleted = (index) => {
+        const completed = JSON.parse(localStorage.getItem('completed')) || [false, false, false, false];
+        completed[index] = true; 
+        localStorage.setItem('completed', JSON.stringify(completed)); 
+    };
+
+    useEffect(() => {
+        if (!localStorage.getItem('completed')) {
+            localStorage.setItem('completed', JSON.stringify([false, false, false, false]));
+        }
+    }, []);
 
     return (
-        <div className="Table">
-            <div className="title1">
-            שולחן עגול ברשות המקומית
-            </div>
-            <div className="text-continer-body">
-                <div className='title-div-body'></div>
-                <div className="title2"> מטרה </div>
-
-            </div>
-
-        </div>
-
-
-
+        <Cards 
+            data={TableData} 
+            title='שולחן עגול ברשות המקומית' 
+            dataType="TableData" 
+            updateCompleted={updateCompleted} 
+            index={3} 
+        />
     );
 }
 

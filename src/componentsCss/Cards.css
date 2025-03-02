@@ -162,3 +162,15 @@
     position: relative;
     direction: rtl;
 }
+
+.video-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.video-player {
+    width: 88%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
