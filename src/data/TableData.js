@@ -2,7 +2,7 @@
 const TableData = [
     {
         id: 1,
-        logoSrc: `${process.env.PUBLIC_URL}/assests/imgs/logos/track.png`,
+        logoSrc: `${process.env.PUBLIC_URL}/assests/imgs/logos/discussion.png`,
         title: "?",
     },
     {
