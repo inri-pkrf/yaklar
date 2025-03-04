@@ -48,7 +48,7 @@ function Diagram({ onComplete }) {
         if (selectedItem !== null && !readItems.includes(selectedItem)) {
             const updatedReadItems = [...readItems, selectedItem];
             setReadItems(updatedReadItems);
-            localStorage.setItem('readItemsDiagram', JSON.stringify(updatedReadItems)); // ✅ Separate storage key
+            localStorage.setItem('readItemsDiagram', JSON.stringify(updatedReadItems)); 
     
             if (updatedReadItems.length === diagramItems.length) {
                 onComplete();

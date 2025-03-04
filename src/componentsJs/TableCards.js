@@ -72,6 +72,12 @@ function TableCards({ onComplete }) {
                 ))}
             </div>
 
+            <img
+                src={process.env.PUBLIC_URL + '/assests/imgs/table.png'}
+                className="table"
+                alt="table"
+            />
+
             {selectedItem !== null && (
                 <PopUp
                     title={CardsItems[selectedItem]} 

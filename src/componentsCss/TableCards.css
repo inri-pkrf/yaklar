@@ -12,18 +12,20 @@
 }
 
 .cards-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two items per row */
-    gap: 3vh 3vw; /* Reduced space between rows and columns */
+    display: grid; 
     margin-top: 20px;
-    justify-items: center; /* Center cards horizontally */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3vh 3vw;
 }
 
 
 .card-item-wrapper {
-    width: 100%;
+    width: calc(50% - 3vw); 
     display: flex;
-    justify-content: center;
+    justify-content: center; 
 }
 
 .card-item {
@@ -48,4 +50,12 @@
     background-color:  #60abcf; 
     border: 2px solid #60abcf; 
     color: white;
+}
+
+.table{
+    position: absolute;
+    right: 48%;
+    transform: translateX(50%);
+    margin-top: 3vh;
+    width: 68vw;
 }

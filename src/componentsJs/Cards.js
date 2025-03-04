@@ -78,12 +78,17 @@ function Cards({ data, title, updateCompleted, index, dataType }) {
 
                         {currentItem.videoSrc && (
                             <div className="video-container">
-                                <video controls className="video-player">
+                                <video
+                                    key={currentItem.videoSrc}
+                                    controls
+                                    className="video-player"
+                                >
                                     <source src={currentItem.videoSrc} type="video/mp4" />
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
                         )}
+
 
                         {isQuiz && (
                             <div className="quiz-container">
