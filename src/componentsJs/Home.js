@@ -53,14 +53,16 @@ function Home() {
                 ))}
             </div>
 
-            <img
-                src={process.env.PUBLIC_URL + '/assests/imgs/SboxClose.png'}
-                className="SboxClose"
-                alt="SboxClose"
-            />
-            <span className="SboxText">
-                סימולציה
-            </span>
+            <div onClick={() => navigate('/simulation')}>
+                <img
+                    src={process.env.PUBLIC_URL + '/assests/imgs/SboxClose.png'}
+                    className="SboxClose"
+                    alt="SboxClose"
+                />
+                <span className="SboxText">
+                    סימולציה
+                </span></div>
+
 
             <div className='marginBottom'></div>
         </div>
