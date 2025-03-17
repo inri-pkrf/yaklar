@@ -1,0 +1,111 @@
+.SimulationGame{
+    z-index: 100;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(227, 212, 200);
+    position: absolute;
+}
+
+.game-header{
+    width: 100%;
+    position: absolute;
+    background-color: #f7b37c;
+    height: 14vh;
+    border-bottom: 1px solid #000; 
+}
+
+.title-game{
+    direction: rtl;
+    font-family: 'Heebo', sans-serif;
+    font-size: 5.5vw;
+    color: #333;
+    position: absolute;
+    top: 3.5vh;
+    right: 21vw;
+}
+
+.circle-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #efefef;
+    position: absolute;
+    top: 3vh;
+    right: 2vw;
+}
+
+.circle-img img {
+    width: 75%; 
+    height: auto;
+    object-fit: contain;
+}
+
+.logos{
+    position: absolute;
+    top: 21vh;
+}
+
+#logo-phone{
+    left: 3vw;
+    width: 6vw;
+}
+
+#logo-video{
+    left: 11vw;
+    width: 8vw;
+}
+
+/* ------------------------------------------------------------- */
+
+.keybord-div{
+    width: 100%;
+    position: absolute;
+    bottom: 0vh;
+    background-color: #f7b37c;
+    height: 30vh;
+    border-top: 1px solid #000; 
+}
+
+/* .answers-continer{
+
+} */
+
+.answers-divs{
+    height: 11vh;
+    width: 34vw;
+    background-color: #eeeeee;
+    border-radius: 7vw;
+    position: absolute;
+    bottom: 7vh;
+    text-align: center;
+    font-family: 'Heebo', sans-serif;
+    color: grey;
+    font-size: 4.5vw;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    padding-left: 4vw;
+    padding-right: 4vw;
+}
+
+#answer1-div{
+    left: 53vw;
+}
+
+#answer2-div{
+    left: 6vw;
+}
+
+.btn-to-home{
+    font-family: 'Heebo', sans-serif;
+    font-size: 4.5vw;
+    color: #333;
+    position: absolute;
+    bottom: 2vh;
+    right: 3vw;
+    text-decoration: underline;
+}

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import '../componentsCss/Simulation.css';
+import SimulationGame from './SimulationGame'; // Import the new component
 
 function Simulation() {
     const [name, setName] = useState('');
     const [municipality, setMunicipality] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-    const [introFinished, setIntroFinished] = useState(false); 
+    const [showSimulationGame, setShowSimulationGame] = useState(false); // New state
 
     const municipalities = [
         "תל אביב",
@@ -25,12 +26,12 @@ function Simulation() {
             setErrorMessage("עליך לבחור את הרשות עליה את/ה משתייכ/ת על מנת להמשיך");
         } else {
             setErrorMessage(""); 
-            setIntroFinished(true); // מסמן שה-intro הסתיים
+            setShowSimulationGame(true); // Move to the next component
         }
     };
 
-    if (introFinished) {
-        return <div>🎉 התחלת את הסימולציה! (פה תמשיך הסימולציה)</div>;
+    if (showSimulationGame) {
+        return <SimulationGame name={name} municipality={municipality} />; // Pass data to next component
     }
 
     return (
