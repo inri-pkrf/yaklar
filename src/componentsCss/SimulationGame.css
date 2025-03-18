@@ -60,6 +60,16 @@
     width: 8vw;
 }
 
+/* ------------------------------------------------------------ */
+
+.texing-div{
+    width: 100%;
+    height: 47vh;
+    position: absolute;
+    bottom: 39vh;
+    overflow-y: auto;
+}
+
 /* ------------------------------------------------------------- */
 
 .keybord-div{
@@ -71,9 +81,6 @@
     border-top: 1px solid #000; 
 }
 
-/* .answers-continer{
-
-} */
 
 .answers-divs{
     height: 11vh;
@@ -109,3 +116,33 @@
     right: 3vw;
     text-decoration: underline;
 }
+
+.input-div {
+    position: absolute;
+    bottom: 32vh;
+    right: 1vw;
+    font-family: 'Heebo', sans-serif;
+    font-size: 4.5vw;
+    color: #333;
+    background-color: #eeeeee;
+    border-radius: 7vw;
+    height: 4vh;
+    width: 79vw;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 1vh;
+    direction: rtl;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    border: 1px solid #000; 
+}
+
+
+.btn-to-send{
+    position: absolute;
+    bottom: 32vh;
+    left: 2vw;
+    width: 10vw;
+    transform: rotate(180deg);
+}
+

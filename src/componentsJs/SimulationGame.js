@@ -1,9 +1,9 @@
 import React from 'react';
 import '../componentsCss/SimulationGame.css';
 import { useNavigate } from 'react-router-dom';
+import TextPart from './TextPart';
 
-
-function SimulationGame({ name, municipality }) {
+function SimulationGame({ municipality }) {
     const navigate = useNavigate();
 
     return (
@@ -33,6 +33,17 @@ function SimulationGame({ name, municipality }) {
                     alt="logo-video"
                 />
             </div>
+
+            <div className='texing-div'>
+                <TextPart />
+            </div>
+
+            <div className='input-div'></div>
+            <img
+                src={process.env.PUBLIC_URL + '/assests/imgs/right-arrow-in-a-circle.png'}
+                className="btn-to-send"
+                alt="btn-to-sendv"
+            />
 
             <div className='keybord-div'>
                 <div className='answers-continer'>

@@ -1,0 +1,18 @@
+.answer-side1{
+    height: 10vh;
+    width: 34vw;
+    background-color: #cfe2f3;
+    border-radius: 7vw;
+    position: relative;
+    top: 2vh;
+    left: 53vw;
+    text-align: center;
+    font-family: 'Heebo', sans-serif;
+    color: #2c2b2b;
+    font-size: 4vw;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    direction: rtl;
+}
