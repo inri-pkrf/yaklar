@@ -11,7 +11,6 @@ function Header() {
                 src={process.env.PUBLIC_URL + '/assests/imgs/collegeLogoText.png'}
                 className="collegeLogoText"
                 alt="collegeLogoText"
-                // onClick={() => navigate('/home')}
             />
             <img
                 src={process.env.PUBLIC_URL + '/assests/imgs/homeLogo.png'}

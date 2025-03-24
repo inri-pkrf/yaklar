@@ -187,3 +187,18 @@
     direction: rtl;
     margin-bottom: 2vh;
 }
+
+.is-clicked {
+    background-color: #c7c6c6; 
+    /* color: white; */
+    transition: background-color 0.3s ease-in-out;
+}
+
+.message-sent{
+    font-family: 'Heebo', sans-serif;
+    color: #2c2b2b;
+    font-size: 5vw;
+    position: relative;
+    top: 10vh;
+    left: 4vw;
+}
