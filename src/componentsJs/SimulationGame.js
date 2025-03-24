@@ -11,6 +11,7 @@ function SimulationGame({ municipality, name }) {
     const [messageSent, setMessageSent] = useState(false);
     const [showAnswers, setShowAnswers] = useState(true);
     const [isAnswerSelected, setIsAnswerSelected] = useState(false); // Track answer selection
+    const [isSimulationCompleted, setIsSimulationCompleted] = useState(false); // Flag for simulation completion
     const chatEndRef = useRef(null);
 
     const currentQuestion = TextData[currentQuestionIndex];
@@ -52,15 +53,26 @@ function SimulationGame({ municipality, name }) {
 
         setTimeout(() => {
             setMessageSent(false);
-            setCurrentQuestionIndex(prevIndex => (prevIndex + 1) % TextData.length);
 
-            setTimeout(() => {
+            if (currentQuestionIndex === TextData.length - 1) {
+                // After the last question, show completion message
+                setIsSimulationCompleted(true);
                 setChatMessages(prevMessages => [
                     ...prevMessages,
-                    { side: '1', content: TextData[(currentQuestionIndex + 1) % TextData.length].content }
+                    { side: '1', content: "כל הכבוד! סיימת את הסימולציה" }
                 ]);
-                setShowAnswers(true);
-            }, 500);
+            } else {
+                // Continue to next question
+                setCurrentQuestionIndex(prevIndex => (prevIndex + 1) % TextData.length);
+
+                setTimeout(() => {
+                    setChatMessages(prevMessages => [
+                        ...prevMessages,
+                        { side: '1', content: TextData[(currentQuestionIndex + 1) % TextData.length].content }
+                    ]);
+                    setShowAnswers(true);
+                }, 500);
+            }
         }, 3000);
     };
 
@@ -101,7 +113,7 @@ function SimulationGame({ municipality, name }) {
                 {messageSent ? (
                     <div className="message-sent">הודעה נשלחה</div>
                 ) : (
-                    showAnswers && (
+                    showAnswers && !isSimulationCompleted && (
                         <div className='answers-continer'>
                             {currentQuestion.answers.map((answer, index) => (
                                 <div
@@ -116,7 +128,13 @@ function SimulationGame({ municipality, name }) {
                         </div>
                     )
                 )}
-                <div className='btn-to-home' onClick={() => navigate('/home')}>חזרה לדף הבית</div>
+
+                {!isSimulationCompleted && (
+                    <div className='btn-to-home' onClick={() => navigate('/home')}>חזרה לדף הבית</div>
+                )}
+                {isSimulationCompleted && (
+                    <div className='end-chat-btn' onClick={() => navigate('/home')}>חזרה ללומדה</div>
+                )}
             </div>
         </div>
     );

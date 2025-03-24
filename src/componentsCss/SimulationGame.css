@@ -202,3 +202,23 @@
     top: 10vh;
     left: 4vw;
 }
+
+.end-chat-btn{
+    height: 5vh;
+    width: 43vw;
+    background-color: pink;
+    border-radius: 16vw;
+    position: relative;
+    top: 8vh;
+    left: 25vw;
+    text-align: center;
+    font-family: 'Heebo', sans-serif;
+    color: rgb(185 99 99);
+    font-size: 6vw;
+    font-weight: bold;
+    padding-top: 4vh;
+    padding-bottom: 4vh;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    border: 1px solid;
+}
