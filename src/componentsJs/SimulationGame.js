@@ -83,8 +83,8 @@ function SimulationGame({ municipality, name }) {
                 <div className='circle-img'>
                     <img src={process.env.PUBLIC_URL + '/assests/imgs/logos/bot.png'} className="bot" alt="bot" />
                 </div>
-                <img src={process.env.PUBLIC_URL + '/assests/imgs/logos/telephone.png'} className="logos" id='logo-phone' alt="logo-phone" />
-                <img src={process.env.PUBLIC_URL + '/assests/imgs/logos/cam-recorder.png'} className="logos" id='logo-video' alt="logo-video" />
+                <img src={process.env.PUBLIC_URL + '/assests/imgs/logos/telephone.png'} className="logos-SimulationGame" id='logo-phone' alt="logo-phone" />
+                <img src={process.env.PUBLIC_URL + '/assests/imgs/logos/cam-recorder.png'} className="logos-SimulationGame" id='logo-video' alt="logo-video" />
             </div>
 
             <div className='texing-div'>

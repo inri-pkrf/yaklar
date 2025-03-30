@@ -16,7 +16,7 @@
     z-index: 2;
 }
 
-.title1 {
+.title1-Simulation {
     font-family: 'Karantina';
     font-size: 11.8vw;
     color: #175a85;
@@ -27,6 +27,7 @@
     position: relative;
     z-index: 2;
 }
+
 
 .into-text-Simulation{
     font-family: 'Heebo', sans-serif;

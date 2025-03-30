@@ -42,7 +42,7 @@ function Simulation() {
                     className="touch-logo"
                     alt="touch-logo"
                 />
-                <div className="title1">סימולציה</div>
+                <div className="title1-Simulation">סימולציה</div>
                 <div className="text-continer-body">
                     <div className='title-div-body'></div>
                     <div className='into-text-Simulation'>
