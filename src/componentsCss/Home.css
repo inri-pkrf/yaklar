@@ -35,7 +35,7 @@
     width: 92vw;
 }
 
-.flexBox {
+.flexBox-boxes {
     position: absolute;
     right: 50%;
     transform: translateX(50%);
@@ -52,25 +52,50 @@
     height: auto;
 }
 
-.flexBox img:nth-child(1),
-.flexBox img:nth-child(2) {
+.flexBox-boxes img:nth-child(1),
+.flexBox-boxes img:nth-child(2) {
     order: 1;
 }
 
-.flexBox img:nth-child(3),
-.flexBox img:nth-child(4) {
+.flexBox-boxes img:nth-child(3),
+.flexBox-boxes img:nth-child(4) {
     order: 2;
 }
 
+.flexBox-text {
+    position: absolute;
+    right: 50%;
+    transform: translateX(47%);
+    margin-top: 72vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 142px;
+    column-gap: 110px;
+    width: 73vw;
+}
+
+
+.flexBox-text span:nth-child(1),
+.flexBox-text span:nth-child(2) {
+    order: 1;
+}
+
+.flexBox-text span:nth-child(3),
+.flexBox-text span:nth-child(4) {
+    order: 2;
+}
+
+
 .boxText {
     font-family: 'Karantina';
-    position: absolute;
+    /* position: absolute; */
     color: white;
     font-size: 9vw;
-    text-align: center;
-    margin-left: -20vh;
-    margin-top: 10vh;
-    width: 20vw;
+    /* text-align: center; */
+    /* margin-left: -20vh; */
+    /* margin-top: 10vh; */
+    /* width: 20vw; */
 }
 
 .SboxClose{

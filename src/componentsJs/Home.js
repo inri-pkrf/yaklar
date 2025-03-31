@@ -31,8 +31,8 @@ function Home() {
                 בסיום כל נושא נשאל כמה שאלות הבנה שחובה לענות עליהן כדי להתקדם. זה יעזור לנו ולכם להבין שכולנו בכיוון הנכון.
             </div>
 
-            <div className="flexBox">
-                {boxTexts.map((text, index) => (
+            <div className="flexBox-boxes">
+                {boxTexts.map((index) => (
                     <div
                         key={index}
                         className="boxContainer"
@@ -43,15 +43,23 @@ function Home() {
                             className="boxClose"
                             alt="boxClose"
                         />
-                        <span
-                            className="boxText"
-                            style={text === "שולחן עגול" ? { marginTop: "8vh" } : {}}
-                        >
-                            {text}
-                        </span>
                     </div>
                 ))}
             </div>
+
+            <div className="flexBox-text">
+                {boxTexts.map((text, index) => (
+                    <span
+                        key={index}
+                        className="boxText"
+                        onClick={() => navigate(navArray[index])}
+                        style={text === "שולחן עגול" ? { width: "8vh" , position: "relative", bottom: "2vh", left: "-3vw" } : {}}
+                    >
+                        {text}
+                    </span>
+                ))}
+            </div>
+
 
             <div onClick={() => navigate('/simulation')}>
                 <img

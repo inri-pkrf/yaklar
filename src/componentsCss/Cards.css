@@ -36,7 +36,7 @@
 .text-div-body {
     font-family: 'Heebo', sans-serif;
     font-size: 4.7vw;
-    color: grey;
+    color: #3b3a3a;
     text-align: right;
     width: 86vw;
     padding: 5vw;
@@ -55,7 +55,7 @@
     width: 94vw;
     height: 17vh;
     background-color: #d6c5b6;
-    border-radius: 107vw 107vw 0 0;
+    border-radius: 25vw 25vw 0 0;
 }
 
 
