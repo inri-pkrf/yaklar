@@ -10,17 +10,56 @@ function SimulationGame({ municipality, name }) {
     const [chatMessages, setChatMessages] = useState([]);
     const [messageSent, setMessageSent] = useState(false);
     const [showAnswers, setShowAnswers] = useState(true);
-    const [isAnswerSelected, setIsAnswerSelected] = useState(false); // Track answer selection
-    const [isSimulationCompleted, setIsSimulationCompleted] = useState(false); // Flag for simulation completion
+    const [isAnswerSelected, setIsAnswerSelected] = useState(false);
+    const [isSimulationCompleted, setIsSimulationCompleted] = useState(false);
     const chatEndRef = useRef(null);
 
     const currentQuestion = TextData[currentQuestionIndex];
 
+    // הוסיפי ליד שאר ה-refs:
+    const didInitRef = useRef(false);
+
+    // החליפי את ה-useEffect של הטעינה הראשונית בזה:
     useEffect(() => {
-        if (chatMessages.length === 0) {
-            setChatMessages([{ side: '1', content: currentQuestion.content }]);
+        if (didInitRef.current) return; // מגן מפני StrictMode כפול
+        didInitRef.current = true;
+
+        const savedChat = sessionStorage.getItem("simChatMessages");
+        const savedIndexStr = sessionStorage.getItem("simChatIndex");
+        const savedCompleted = sessionStorage.getItem("simCompleted");
+
+        if (savedChat && savedIndexStr) {
+            // יש מצב שמור – משחזרים *שניהם* יחד כדי לשמור על סנכרון
+            const idx = Number(savedIndexStr);
+            setCurrentQuestionIndex(idx);
+            setChatMessages(JSON.parse(savedChat));
+            setIsSimulationCompleted(savedCompleted === "true");
+        } else {
+            // אין מצב שמור – מתחילים מסודר מהשאלה הראשונה
+            setCurrentQuestionIndex(0);
+            setChatMessages([{ side: '1', content: TextData[0].content }]);
+            setIsSimulationCompleted(false);
         }
-    }, [currentQuestionIndex, currentQuestion.content, chatMessages]);
+    }, []);
+
+    useEffect(() => {
+        sessionStorage.setItem("simChatMessages", JSON.stringify(chatMessages));
+    }, [chatMessages]);
+
+    useEffect(() => {
+        sessionStorage.setItem("simChatIndex", String(currentQuestionIndex));
+    }, [currentQuestionIndex]);
+
+    useEffect(() => {
+        sessionStorage.setItem("simCompleted", String(isSimulationCompleted));
+    }, [isSimulationCompleted]);
+
+
+    // useEffect(() => {
+    //     if (chatMessages.length === 0) {
+    //         setChatMessages([{ side: '1', content: currentQuestion.content }]);
+    //     }
+    // }, [currentQuestionIndex, currentQuestion.content, chatMessages]);
 
     useEffect(() => {
         if (chatEndRef.current) {
@@ -30,45 +69,49 @@ function SimulationGame({ municipality, name }) {
 
     const handleAnswerSelection = (answer) => {
         setSelectedAnswer(answer);
-        setIsAnswerSelected(true); // Change button image to green arrow
+        setIsAnswerSelected(true);
     };
-
     const handleSubmit = () => {
         if (!selectedAnswer) return;
 
         setShowAnswers(false);
         setMessageSent(true);
-        setIsAnswerSelected(false); // Reset button image to default
+        setIsAnswerSelected(false);
+        const answerToSend = selectedAnswer; // לשמור לוגית מה נשלח
         setSelectedAnswer('');
 
-        const isCorrect = currentQuestion.answers[currentQuestion.correctAnswer] === selectedAnswer;
+        const isCorrect =
+            currentQuestion.answers[currentQuestion.correctAnswer] === answerToSend;
         const feedback = isCorrect ? currentQuestion.feedbackCorrect : currentQuestion.feedbackInCorrect;
 
-        const newMessages = [
-            { side: '2', content: selectedAnswer },
+        setChatMessages(prev => [
+            ...prev,
+            { side: '2', content: answerToSend },
             { side: '1', content: feedback }
-        ];
-
-        setChatMessages(prevMessages => [...prevMessages, ...newMessages]);
+        ]);
 
         setTimeout(() => {
             setMessageSent(false);
 
-            if (currentQuestionIndex === TextData.length - 1) {
-                // After the last question, show completion message
+            const isLast = currentQuestionIndex === TextData.length - 1;
+
+            if (isLast) {
                 setIsSimulationCompleted(true);
-                setChatMessages(prevMessages => [
-                    ...prevMessages,
+                setChatMessages(prev => [
+                    ...prev,
                     { side: '1', content: "כל הכבוד! סיימת את הסימולציה" }
                 ]);
+
+                // שמירת מצב סיום הסימולציה
+                sessionStorage.setItem('simulationCompleted', 'true');
             } else {
-                // Continue to next question
-                setCurrentQuestionIndex(prevIndex => (prevIndex + 1) % TextData.length);
+                const nextIndex = (currentQuestionIndex + 1) % TextData.length;
+                setCurrentQuestionIndex(nextIndex);
 
                 setTimeout(() => {
-                    setChatMessages(prevMessages => [
-                        ...prevMessages,
-                        { side: '1', content: TextData[(currentQuestionIndex + 1) % TextData.length].content }
+                    setChatMessages(prev => [
+                        ...prev,
+                        { side: '1', content: TextData[nextIndex].content }
                     ]);
                     setShowAnswers(true);
                 }, 500);
@@ -89,20 +132,23 @@ function SimulationGame({ municipality, name }) {
 
             <div className='texing-div'>
                 <div id='first-text' className='side1-text'>שלום {name} ! אני הבוט שלך והיום נשאל כמה שאלות....</div>
+                {chatMessages.length === 0 && (
+                    <div className="side1-text">{TextData[0].content}</div>
+                )}
                 {chatMessages.map((message, index) => (
                     <div key={index} className={`side${message.side}-text`}>
                         {message.content}
                     </div>
                 ))}
+
                 <div ref={chatEndRef}></div>
             </div>
 
             <div className='input-div'>{selectedAnswer}</div>
 
-            {/* Dynamically change the button image */}
-            <img 
-                src={process.env.PUBLIC_URL + (isAnswerSelected 
-                    ? '/assests/imgs/green-arrow.png' 
+            <img
+                src={process.env.PUBLIC_URL + (isAnswerSelected
+                    ? '/assests/imgs/green-arrow.png'
                     : '/assests/imgs/right-arrow-in-a-circle.png')}
                 className="btn-to-send"
                 alt="btn-to-send"
@@ -129,12 +175,24 @@ function SimulationGame({ municipality, name }) {
                     )
                 )}
 
-                {!isSimulationCompleted && (
-                    <div className='btn-to-home' onClick={() => navigate('/home')}>חזרה לדף הבית</div>
+                {!isSimulationCompleted && !messageSent && (
+                    <div className='btn-to-home' onClick={() => navigate('/home')}>
+                        חזרה לדף הבית
+                    </div>
                 )}
                 {isSimulationCompleted && (
-                    <div className='end-chat-btn' onClick={() => navigate('/home')}>חזרה ללומדה</div>
+                    <div
+                        className='end-chat-btn'
+                        onClick={() => {
+                            // שמירה שהסימולציה הושלמה
+                            sessionStorage.setItem('simulationCompleted', 'true');
+                            navigate('/home');
+                        }}
+                    >
+                        חזרה ללומדה
+                    </div>
                 )}
+
             </div>
         </div>
     );

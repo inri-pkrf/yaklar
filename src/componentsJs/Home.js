@@ -4,28 +4,31 @@ import '../componentsCss/Home.css';
 
 function Home() {
     const navigate = useNavigate();
-    const [completed, setCompleted] = useState([false, false, false, false]); // Default state
+    const [completed, setCompleted] = useState([false, false, false, false]);
+
+    // בודק אם הסימולציה פתוחה לפי ה-progress או sessionStorage
+    const simulationUnlocked = completed.every(c => c === true) || sessionStorage.getItem('simulationCompleted') === 'true';
+
+    const [simulationCompleted, setSimulationCompleted] = useState(false);
+
+useEffect(() => {
+    setSimulationCompleted(sessionStorage.getItem('simulationCompleted') === 'true');
+}, []);
 
     // Load the completion state from sessionStorage
     useEffect(() => {
         const stored = JSON.parse(sessionStorage.getItem('progressData')) || {};
-
-        // בודק עבור כל פרק אם diagramCompleted הוא true
         const completedArray = [
             stored[0]?.diagramCompleted || false,
             stored[1]?.diagramCompleted || false,
             stored[2]?.diagramCompleted || false,
             stored[3]?.diagramCompleted || false
         ];
-
         setCompleted(completedArray);
     }, []);
 
     const boxTexts = ["יכולות", "תפקידים", "שולחן עגול", "מרס\"ל"];
     const navArray = ["/abilities", "/roles", "/table", "/marsel"];
-
-    // בדיקה אם אפשר לפתוח את הסימולציה
-    const simulationUnlocked = completed.every(c => c === true);
 
     return (
         <div className="Home">
@@ -74,18 +77,27 @@ function Home() {
 
             {/* קופסת סימולציה */}
             <div
-                onClick={() => simulationUnlocked && navigate('/simulation')}
+                onClick={() => {
+                    const savedState = JSON.parse(sessionStorage.getItem('simulationState'));
+                    if (savedState && savedState.name && savedState.municipality) {
+                        navigate('/simulation');
+                    } else if (simulationUnlocked) {
+                        navigate('/simulation');
+                    }
+                }}
                 style={{
-                    pointerEvents: simulationUnlocked ? 'auto' : 'none', // אם לא פתוחה אי אפשר ללחוץ
-                    opacity: simulationUnlocked ? 1 : 0.4, // אפקט "חשוך"
+                    pointerEvents: simulationUnlocked ? 'auto' : 'none',
+                    opacity: simulationUnlocked ? 1 : 0.4,
                     cursor: simulationUnlocked ? 'pointer' : 'default'
                 }}
             >
-                <img
-                    src={process.env.PUBLIC_URL + '/assests/imgs/SboxClose.png'}
-                    className="SboxClose"
-                    alt="Sbox"
-                />
+               <img
+    src={process.env.PUBLIC_URL + (simulationCompleted
+        ? '/assests/imgs/SboxOpen.png'
+        : '/assests/imgs/SboxClose.png')}
+    className="SboxClose"
+    alt="Sbox"
+/>
                 <span className="SboxText">
                     סימולציה
                 </span>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../componentsCss/Simulation.css';
 import SimulationGame from './SimulationGame'; // Import the new component
 
@@ -7,6 +7,15 @@ function Simulation() {
     const [municipality, setMunicipality] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [showSimulationGame, setShowSimulationGame] = useState(false); // New state
+
+    useEffect(() => {
+        const savedState = JSON.parse(sessionStorage.getItem('simulationState'));
+        if (savedState) {
+            setShowSimulationGame(true); // דילוג על מסך הפתיחה
+            setName(savedState.name);
+            setMunicipality(savedState.municipality);
+        }
+    }, []);
 
     const municipalities = [
         "תל אביב",
@@ -17,18 +26,23 @@ function Simulation() {
         "פתח תקווה"
     ];
 
-    const handleStart = () => {
-        if (!name && !municipality) {
-            setErrorMessage("עליך למלא את שני השדות על מנת להמשיך");
-        } else if (!name) {
-            setErrorMessage("עליך למלא את שמך על מנת להמשיך");
-        } else if (!municipality) {
-            setErrorMessage("עליך לבחור את הרשות עליה את/ה משתייכ/ת על מנת להמשיך");
-        } else {
-            setErrorMessage(""); 
-            setShowSimulationGame(true); // Move to the next component
-        }
-    };
+const handleStart = () => {
+    if (!name && !municipality) {
+        setErrorMessage("עליך למלא את שני השדות על מנת להמשיך");
+    } else if (!name) {
+        setErrorMessage("עליך למלא את שמך על מנת להמשיך");
+    } else if (!municipality) {
+        setErrorMessage("עליך לבחור את הרשות עליה את/ה משתייכ/ת על מנת להמשיך");
+    } else {
+        setErrorMessage("");
+
+        // שמירת מצב ב-sessionStorage כדי לזכור שהסימולציה התחילה
+        sessionStorage.setItem('simulationState', JSON.stringify({ name, municipality }));
+
+        setShowSimulationGame(true); // מעבר ל-SimulationGame
+    }
+};
+
 
     if (showSimulationGame) {
         return <SimulationGame name={name} municipality={municipality} />; // Pass data to next component
