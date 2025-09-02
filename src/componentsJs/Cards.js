@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Diagram from '../componentsJs/Diagram';
 import TableCards from '../componentsJs//TableCards';
@@ -6,57 +6,100 @@ import '../componentsCss/Cards.css';
 
 function Cards({ data, title, updateCompleted, index, dataType }) {
     const navigate = useNavigate();
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [userAnswers, setUserAnswers] = useState({});
-    const currentItem = data[currentIndex];
-    const [diagramCompleted, setDiagramCompleted] = useState(false);
-    const isLastItem = currentIndex === data.length - 1;
 
+    // נטען התקדמות מהסשן
+    const loadProgress = () => {
+        const stored = JSON.parse(sessionStorage.getItem("progressData")) || {};
+        return stored[index] || { currentIndex: 0, answers: {}, diagramCompleted: false };
+    };
+
+    const [currentIndex, setCurrentIndex] = useState(loadProgress().currentIndex);
+    const [userAnswers, setUserAnswers] = useState(loadProgress().answers);
+    const [diagramCompleted, setDiagramCompleted] = useState(loadProgress().diagramCompleted);
+
+    const currentItem = data[currentIndex];
+    const isLastItem = currentIndex === data.length - 1;
     const isCorrectAnswer = userAnswers[currentIndex] === currentItem.correctAnswer;
     const isQuiz = currentItem.question;
     const hideNextButton = isQuiz && (userAnswers[currentIndex] === undefined || !isCorrectAnswer);
 
+    // פונקציה לעדכון sessionStorage בכל שינוי
+    const saveProgress = (newData = {}) => {
+        const stored = JSON.parse(sessionStorage.getItem("progressData")) || {};
+        const chapterProgress = stored[index] || {};
 
-    const handleNext = () => {
-        if (isLastItem) {
-            if (typeof updateCompleted === 'function') {
-                updateCompleted(index);
-            }
-            navigate('/home');
-        } else {
-            setCurrentIndex(currentIndex + 1);
-            window.scrollTo(0, 0);
-        }
+        stored[index] = {
+            ...chapterProgress,       // שומר את כל המידע הקיים כולל readItems
+            currentIndex,
+            answers: userAnswers,
+            diagramCompleted,
+            ...newData
+        };
+
+        sessionStorage.setItem("progressData", JSON.stringify(stored));
     };
+
+
+    // נעדכן כל פעם שיש שינוי
+    useEffect(() => {
+        saveProgress({});
+    }, [currentIndex, userAnswers, diagramCompleted]);
+
+const handleNext = () => {
+    if (isLastItem) {
+        // סמן את הפרק ב-home
+        if (typeof updateCompleted === 'function') {
+            updateCompleted(index);
+        }
+
+        // סמן את הפרק ב-progressData
+        const stored = JSON.parse(sessionStorage.getItem("progressData")) || {};
+        stored[index] = {
+            ...stored[index],
+            diagramCompleted: true,
+        };
+        sessionStorage.setItem("progressData", JSON.stringify(stored));
+
+        // עכשיו נווט ל-home
+        navigate('/home');
+    } else {
+        setCurrentIndex(currentIndex + 1);
+        window.scrollTo(0, 0);
+    }
+};
+
 
     const handlePrev = () => {
         if (currentIndex > 0) {
             setCurrentIndex(currentIndex - 1);
             window.scrollTo(0, 0);
-            // window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     };
 
-    const handleAnswerClick = (index) => {
-        setUserAnswers(prev => ({
-            ...prev,
-            [currentIndex]: index,
-        }));
-    };
+  const handleAnswerClick = (ansIndex) => {
+    // אם כבר בחרו תשובה נכונה, אל תאפשר שינוי
+    if (userAnswers[currentIndex] === currentItem.correctAnswer) return;
+
+    setUserAnswers(prev => {
+        const newAnswers = { ...prev, [currentIndex]: ansIndex };
+        saveProgress({ answers: newAnswers });
+        return newAnswers;
+    });
+};
+
 
     const getExplanation = () => {
         if (userAnswers[currentIndex] !== undefined) {
-            if (userAnswers[currentIndex] === currentItem.correctAnswer) {
-                return currentItem.explanationRight;
-            } else {
-                return currentItem.explanationWrong;
-            }
+            return userAnswers[currentIndex] === currentItem.correctAnswer
+                ? currentItem.explanationRight
+                : currentItem.explanationWrong;
         }
         return null;
     };
 
     const handleDiagramComplete = () => {
         setDiagramCompleted(true);
+        saveProgress({ diagramCompleted: true });
     };
 
     return (
@@ -68,10 +111,10 @@ function Cards({ data, title, updateCompleted, index, dataType }) {
                 <img src={currentItem.logoSrc} className="logos" alt="logos" />
                 <div className="title2">{currentItem.title}</div>
 
-                {dataType === 'AbilitiesData' && currentItem.id === 5 ? (
-                    <Diagram onComplete={() => setDiagramCompleted(true)} />
+                {dataType === 'AbilitiesData' && currentItem.id === 4 ? (
+                    <Diagram onComplete={handleDiagramComplete} />
                 ) : dataType === 'TableData' && currentItem.id === 1 ? (
-                    <TableCards onComplete={() => setDiagramCompleted(true)} />
+                    <TableCards onComplete={handleDiagramComplete} />
                 ) : (
                     <>
                         {currentItem.text && <div className='text-div-body'>{currentItem.text}</div>}
@@ -89,21 +132,20 @@ function Cards({ data, title, updateCompleted, index, dataType }) {
                             </div>
                         )}
 
-
                         {isQuiz && (
                             <div className="quiz-container">
                                 <div className="question">{currentItem.question}</div>
                                 <div className="answers">
-                                    {currentItem.answers.map((answer, index) => (
+                                    {currentItem.answers.map((answer, i) => (
                                         <div
-                                            key={index}
-                                            className={`answer-item ${userAnswers[currentIndex] === index
-                                                ? index === currentItem.correctAnswer
-                                                    ? 'rightanswer'
-                                                    : 'wronganswer'
-                                                : ''
+                                            key={i}
+                                            className={`answer-item ${userAnswers[currentIndex] === i
+                                                    ? i === currentItem.correctAnswer
+                                                        ? 'rightanswer'
+                                                        : 'wronganswer'
+                                                    : ''
                                                 }`}
-                                            onClick={() => handleAnswerClick(index)}
+                                            onClick={() => handleAnswerClick(i)}
                                         >
                                             {answer}
                                         </div>
@@ -115,11 +157,10 @@ function Cards({ data, title, updateCompleted, index, dataType }) {
                     </>
                 )}
 
-
-
                 <div className='btns-div'>
                     <div
-                        className={`btn-next-div ${(hideNextButton || (dataType === 'AbilitiesData' && currentItem.id === 5 && !diagramCompleted)) ? 'hidden' : ''}`}
+                        className={`btn-next-div ${(hideNextButton || (dataType === 'AbilitiesData' && currentItem.id === 5 && !diagramCompleted)) ? 'hidden' : ''
+                            }`}
                         onClick={handleNext}
                     >
                         <div
@@ -141,7 +182,10 @@ function Cards({ data, title, updateCompleted, index, dataType }) {
                         />
                     </div>
 
-                    <div className={`btn-prev-div ${currentIndex === 0 ? 'hidden' : ''}`} onClick={handlePrev}>
+                    <div
+                        className={`btn-prev-div ${currentIndex === 0 ? 'hidden' : ''}`}
+                        onClick={handlePrev}
+                    >
                         <div className='btns-text' id='btn-prev-text'>הקודם</div>
                         <img src={process.env.PUBLIC_URL + '/assests/imgs/right.png'} className="btns" id="btn-prev-img" alt="btn-prev" />
                     </div>

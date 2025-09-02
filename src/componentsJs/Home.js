@@ -6,16 +6,26 @@ function Home() {
     const navigate = useNavigate();
     const [completed, setCompleted] = useState([false, false, false, false]); // Default state
 
-    // Load the completion state from localStorage
+    // Load the completion state from sessionStorage
     useEffect(() => {
-        const storedCompleted = JSON.parse(localStorage.getItem('completed'));
-        if (storedCompleted) {
-            setCompleted(storedCompleted); // Set the completed subjects from localStorage
-        }
-    }, []); // Only run once on component mount
+        const stored = JSON.parse(sessionStorage.getItem('progressData')) || {};
+
+        // בודק עבור כל פרק אם diagramCompleted הוא true
+        const completedArray = [
+            stored[0]?.diagramCompleted || false,
+            stored[1]?.diagramCompleted || false,
+            stored[2]?.diagramCompleted || false,
+            stored[3]?.diagramCompleted || false
+        ];
+
+        setCompleted(completedArray);
+    }, []);
 
     const boxTexts = ["יכולות", "תפקידים", "שולחן עגול", "מרס\"ל"];
     const navArray = ["/abilities", "/roles", "/table", "/marsel"];
+
+    // בדיקה אם אפשר לפתוח את הסימולציה
+    const simulationUnlocked = completed.every(c => c === true);
 
     return (
         <div className="Home">
@@ -32,16 +42,18 @@ function Home() {
             </div>
 
             <div className="flexBox-boxes">
-                {boxTexts.map((index) => (
+                {boxTexts.map((text, index) => (
                     <div
                         key={index}
                         className="boxContainer"
                         onClick={() => navigate(navArray[index])}
                     >
                         <img
-                            src={completed[index] ? process.env.PUBLIC_URL + '/assests/imgs/boxOpen.png' : process.env.PUBLIC_URL + '/assests/imgs/boxClose.png'}
+                            src={completed[index]
+                                ? process.env.PUBLIC_URL + '/assests/imgs/boxOpen.png'
+                                : process.env.PUBLIC_URL + '/assests/imgs/boxClose.png'}
                             className="boxClose"
-                            alt="boxClose"
+                            alt={text}
                         />
                     </div>
                 ))}
@@ -53,24 +65,31 @@ function Home() {
                         key={index}
                         className="boxText"
                         onClick={() => navigate(navArray[index])}
-                        style={text === "שולחן עגול" ? { width: "8vh" , position: "relative", bottom: "2vh", left: "-3vw" } : {}}
+                        style={text === "שולחן עגול" ? { width: "8vh", position: "relative", bottom: "2vh", left: "-3vw" } : {}}
                     >
                         {text}
                     </span>
                 ))}
             </div>
 
-
-            <div onClick={() => navigate('/simulation')}>
+            {/* קופסת סימולציה */}
+            <div
+                onClick={() => simulationUnlocked && navigate('/simulation')}
+                style={{
+                    pointerEvents: simulationUnlocked ? 'auto' : 'none', // אם לא פתוחה אי אפשר ללחוץ
+                    opacity: simulationUnlocked ? 1 : 0.4, // אפקט "חשוך"
+                    cursor: simulationUnlocked ? 'pointer' : 'default'
+                }}
+            >
                 <img
                     src={process.env.PUBLIC_URL + '/assests/imgs/SboxClose.png'}
                     className="SboxClose"
-                    alt="SboxClose"
+                    alt="Sbox"
                 />
                 <span className="SboxText">
                     סימולציה
-                </span></div>
-
+                </span>
+            </div>
 
             <div className='marginBottom'></div>
         </div>

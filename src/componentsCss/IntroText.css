@@ -1,27 +1,27 @@
-.IntroText{
+.IntroText {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: #f2e5dd;
-    /* overflow: hidden; */
-        overflow-y: auto;
+    overflow-y: auto;
     overflow-x: hidden;
 }
 
-.intro-continer{
+.intro-continer {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     margin-top: 18vh;
     width: 94vw;
-    height: 169vh;
+    height: 125vh;
     background-color: #e3d4c8;
+    direction: rtl;
     border-radius: 107px 107px 0 0;
 }
 
-.title-div{
+.title-div {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -32,7 +32,7 @@
     border-radius: 107px 107px 0 0;
 }
 
-.title-intro{
+.title-intro {
     position: absolute;
     right: 50%;
     transform: translateX(50%);
@@ -45,7 +45,7 @@
     z-index: 2;
 }
 
-.text-intro-div{
+.text-intro-div {
     position: absolute;
     right: 50%;
     transform: translateX(50%);
@@ -58,13 +58,13 @@
 }
 
 
-.text-intro{
+.text-intro {
     font-family: 'Heebo', sans-serif;
     font-size: 5vw;
     color: black;
 }
 
-.about-div{
+.about-div {
     position: absolute;
     right: 50%;
     transform: translateX(50%);
@@ -114,7 +114,7 @@
     font-size: 4vw;
     color: #50565c;
     text-align: center;
-    margin-top: 36vh;
+    margin-top: 2vh;
     width: 67vw;
 }
 
@@ -126,14 +126,14 @@
     color: #50565c;
 }
 
-.btn-start{
+.btn-start {
     direction: rtl;
     font-family: 'Karantina', cursive;
     color: white;
     position: absolute;
     right: 50%;
     transform: translateX(50%);
-    margin-top: 147vh;
+    margin-top: 100vh;
     width: 59vw;
     height: 6vh;
     padding: 2vh;
@@ -143,4 +143,3 @@
     border-radius: 7vw;
     background-color: #21b3e1;
 }
-

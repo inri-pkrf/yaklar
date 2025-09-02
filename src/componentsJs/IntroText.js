@@ -23,16 +23,14 @@ function IntroText() {
                         התוכן מיועד לאנשי פיקוד העורף ביקל"ר ונגיש לכל מי שרוצה ללמוד לעומק על משימות היקל"ר בשעת חירום.
                         <br /><br />
                         בסיום לומדה זו תבינו לעומק את תפקידי מש"ק ההתנדבות ביקל"ר ולתאם ציפיות לתפקוד מיטבי בחירום ובשגרה
-                        <br /><br />
-                        בסיום לומדה זו תבינו לעומק את תפקידי מש"ק ההתנדבות ביקל"ר ולתאם ציפיות לתפקוד מיטבי בחירום ובשגרה
                     </div>
 
                     <div className='about-div'>
-                        <img src={process.env.PUBLIC_URL + '/assests/imgs/twoLogos.png'} className="homePageLogos" alt="homePageLogos"></img>
+                        {/* <img src={process.env.PUBLIC_URL + '/assests/imgs/twoLogos.png'} className="homePageLogos" alt="homePageLogos"></img>
                         <div className="subtitle">
                         עזר זה מוגש בזכות שיתוף פעולה בין  ענף התנהגות במחלקת אוכלוסייה ובין המכללה הלאומית לאיתנות ישראלית. 
                         </div>
-                        <div className='date'> מרץ 2025 </div>
+                        <div className='date'> מרץ 2025 </div> */}
                         <div className='mashov-home'>
                             <div className='mashovText'>
                                 <br /> יש הערות על הממשק? יש מחמאות? מלאו את השאלון וצרו איתנו קשר

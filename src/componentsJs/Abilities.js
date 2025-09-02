@@ -1,19 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Cards from '../componentsJs/Cards';
 import AbilitiesData from "../data/AbilitiesData";
 
 function Abilities() {
     const updateCompleted = (index) => {
-        const completed = JSON.parse(localStorage.getItem('completed')) || [false, false, false, false];
-        completed[index] = true; 
-        localStorage.setItem('completed', JSON.stringify(completed)); 
-    };
-
-    useEffect(() => {
-        if (!localStorage.getItem('completed')) {
-            localStorage.setItem('completed', JSON.stringify([false, false, false, false]));
+        const stored = JSON.parse(sessionStorage.getItem('progressData')) || {};
+        if (!stored.completed) {
+            stored.completed = [false, false, false, false];
         }
-    }, []);
+        stored.completed[index] = true;
+        sessionStorage.setItem('progressData', JSON.stringify(stored));
+    };
 
     return (
         <Cards 

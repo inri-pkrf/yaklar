@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import '../componentsCss/Diagram.css';
 import PopUp from './PopUp';
 
-function Diagram({ onComplete }) {
+function Diagram({ onComplete, chapterIndex = 0 }) {
     const [selectedItem, setSelectedItem] = useState(null);
-    const [readItems, setReadItems] = useState([]); 
+    const [readItems, setReadItems] = useState([]);
 
     const diagramItems = ["פיקוד", "מחוז", "נפה", "רשות"];
     const popUpText = [
         <ul>
             <li>קבלת הדרישות מהמרס“ל המחוזי ע“ג מערכת המרס“ל.</li>
             <li>ביצוע פורום מיצוי יכולות אל מול המחוזות.</li>
-            <li>גיבוש המענה מול משרדי הממשלה ברמה הלאומית .</li>
+            <li>גיבוש המענה מול משרדי הממשלה ברמה הלאומית.</li>
             <li>גיבוש המענה מול ארגוני התנדבות ברמה הלאומית.</li>
             <li>גיבוש הצורך מול מגזר שני עסקי ומתן מענה ע“י תורמים.</li>
         </ul>,
@@ -39,21 +39,52 @@ function Diagram({ onComplete }) {
         </ul>,
     ];
 
+    // טוען את הסטטוס מה־sessionStorage
     useEffect(() => {
-        const storedReadItems = JSON.parse(localStorage.getItem('readItemsDiagram')) || [];
-        setReadItems(storedReadItems);
-    }, []);
-    
-    const handleClose = () => {
-        if (selectedItem !== null && !readItems.includes(selectedItem)) {
-            const updatedReadItems = [...readItems, selectedItem];
-            setReadItems(updatedReadItems);
-            localStorage.setItem('readItemsDiagram', JSON.stringify(updatedReadItems)); 
-    
-            if (updatedReadItems.length === diagramItems.length) {
-                onComplete();
-            }
+        const stored = JSON.parse(sessionStorage.getItem("progressData")) || {};
+        console.log("Diagram useEffect load", stored, "chapterIndex:", chapterIndex);
+        console.log("Diagram props", {chapterIndex, onComplete});
+        const chapterProgress = stored[chapterIndex] || {};
+        setReadItems(chapterProgress.readItems || []);
+    }, [chapterIndex]);
+
+    const saveProgress = (items) => {
+        const stored = JSON.parse(sessionStorage.getItem("progressData")) || {};
+        stored[chapterIndex] = {
+            ...(stored[chapterIndex] || {}),
+            readItems: items
+        };
+        sessionStorage.setItem("progressData", JSON.stringify(stored));
+
+        // אפשר עדיין לקרוא ל-onComplete אם נצפו כל הפופ-אפים
+        if (items.length === diagramItems.length && typeof onComplete === 'function') {
+            onComplete();
         }
+    };
+
+const handleOpen = (index) => {
+    setSelectedItem(index);
+
+    const stored = JSON.parse(sessionStorage.getItem("progressData")) || {};
+    const chapterProgress = stored[chapterIndex] || {};
+    const alreadyRead = chapterProgress.readItems || [];
+
+    if (!alreadyRead.includes(index)) {
+        const updated = [...alreadyRead, index];
+        stored[chapterIndex] = { ...chapterProgress, readItems: updated };
+        sessionStorage.setItem("progressData", JSON.stringify(stored));
+        setReadItems(updated);
+
+        console.log("Opened pop-up:", index, "Updated readItems:", updated);
+        console.log("sessionStorage now:", JSON.parse(sessionStorage.getItem("progressData")));
+
+        if (updated.length === diagramItems.length && typeof onComplete === 'function') {
+            onComplete();
+        }
+    }
+};
+
+    const handleClose = () => {
         setSelectedItem(null);
     };
 
@@ -73,7 +104,7 @@ function Diagram({ onComplete }) {
                     <div key={index} className='diagram-item-wrapper'>
                         <div
                             className={`diagram-item ${readItems.includes(index) ? 'readDiv' : ''}`}
-                            onClick={() => setSelectedItem(index)}
+                            onClick={() => handleOpen(index)}
                         >
                             {item}
                         </div>
@@ -100,4 +131,3 @@ function Diagram({ onComplete }) {
 }
 
 export default Diagram;
-

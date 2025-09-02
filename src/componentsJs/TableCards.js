@@ -35,17 +35,18 @@ function TableCards({ onComplete }) {
         </ul>,
     ];
 
+    // טעינת ההתקדמות מה-sessionStorage
     useEffect(() => {
-        const storedReadItems = JSON.parse(localStorage.getItem('readItemsTableCards')) || [];
+        const storedReadItems = JSON.parse(sessionStorage.getItem('readItemsTableCards')) || [];
         setReadItems(storedReadItems);
     }, []);
-    
+
     const handleClose = () => {
         if (selectedItem !== null && !readItems.includes(selectedItem)) {
             const updatedReadItems = [...readItems, selectedItem];
             setReadItems(updatedReadItems);
-            localStorage.setItem('readItemsTableCards', JSON.stringify(updatedReadItems)); // ✅ Separate storage key
-    
+            sessionStorage.setItem('readItemsTableCards', JSON.stringify(updatedReadItems)); // ✅ עדכון ל-sessionStorage
+
             if (updatedReadItems.length === CardsItems.length) {
                 onComplete();
             }

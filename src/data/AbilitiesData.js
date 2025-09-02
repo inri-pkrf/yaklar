@@ -31,27 +31,29 @@ const AbilitiesData = [
         title: "מפת הידע הלאומי:",
         text: [
             <>
-              <b>תוכן חסר!</b>
+                בוצע תהליך מיפוי על גבי מערכת GIS אשר ממפה כ-2,500 ארגוני התנדבות ברשויות המקומיות לפי מיקום גאוגרפי, תחום עיסוק וכמות מתנדבים.
+                <br /><br />
+                ניתן לגשת למיפוי זה בפורטל אג"מים אג"מים - מפת הידע לחירום - שכבת ארגוני התנדבות
+                <br /><br />
+                <a
+                    href="https://portal.agamimp.net/application/64f5bbc434aff120421af4de?environment=%D7%A1%D7%91%D7%99%D7%91%D7%94%20%D7%9E%D7%91%D7%A6%D7%A2%D7%99%D7%AA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: '#1cb4e3', textDecoration: 'underline' }}
+                >
+                    פתח מיפוי GIS
+                </a>
             </>
+
         ],
     },
     {
         id: 4,
-        logoSrc: `${process.env.PUBLIC_URL}/assests/imgs/logos/map.png`,
-        title: "מפת הידע הלאומי:",
-        text: [
-            <>
-              <b>תוכן חסר!</b>
-            </>
-        ],
-    },
-    {
-        id: 5,
         logoSrc: `${process.env.PUBLIC_URL}/assests/imgs/logos/track.png`,
         title: "ציר אורכי:",
     },
     {
-        id: 6,
+        id: 5,
         logoSrc: `${process.env.PUBLIC_URL}/assests/imgs/logos/customer-service.png`,
         title: "שאלת וידוא הבנה:",
         question: "שאלה שאלה שאלה שאלה שאלה שאלה שאלה שאלה שאלה?",
