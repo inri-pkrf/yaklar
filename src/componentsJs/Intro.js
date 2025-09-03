@@ -6,16 +6,33 @@ const Intro = () => {
     const [isVideoEnded, setIsVideoEnded] = useState(false);
     const [showIntro, setShowIntro] = useState(false);
     const [showSkipButton, setShowSkipButton] = useState(false);
+    const [videoSrc, setVideoSrc] = useState('');
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth >= 769) {
+                setVideoSrc(`${process.env.PUBLIC_URL}/assests/videos/introVidComp.mp4`);
+            } else {
+                setVideoSrc(`${process.env.PUBLIC_URL}/assests/videos/introVid.mp4`);
+            }
+        };
+
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     useEffect(() => {
         const videoEndTimeout = setTimeout(() => {
             setIsVideoEnded(true);
-        }, 13000);
+        }, 7200);
 
         const introTextTimeout = setTimeout(() => {
             setShowIntro(true);
-        }, 13050);
+        }, 7250);
 
         const skipButtonTimeout = setTimeout(() => {
             setShowSkipButton(true);
@@ -32,7 +49,6 @@ const Intro = () => {
         setIsVideoEnded(true);
         setShowIntro(true);
     };
-
     const goToIntroText = () => {
         navigate('/IntroText');
     };
@@ -46,10 +62,12 @@ const Intro = () => {
                             &lt;&lt; דלג/י
                         </button>
                     )}
-                    <video className="video-intro" autoPlay muted playsInline>
-                        <source src={`${process.env.PUBLIC_URL}/assests/videos/introVid.mp4`} type="video/mp4" />
-                        Your browser does not support the video tag.
-                    </video>
+                    {videoSrc && (
+                        <video className="video-intro" autoPlay muted playsInline>
+                            <source src={videoSrc} type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    )}
                 </>
             )}
             {showIntro && (

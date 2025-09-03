@@ -153,6 +153,7 @@ function SimulationGame({ municipality, name }) {
                 className="btn-to-send"
                 alt="btn-to-send"
                 onClick={handleSubmit}
+                style={{ cursor: isAnswerSelected ? 'pointer' : 'default' }}
             />
 
             <div className='keybord-div'>

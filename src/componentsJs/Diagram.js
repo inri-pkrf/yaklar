@@ -40,13 +40,19 @@ function Diagram({ onComplete, chapterIndex = 0 }) {
     ];
 
     // טוען את הסטטוס מה־sessionStorage
-    useEffect(() => {
-        const stored = JSON.parse(sessionStorage.getItem("progressData")) || {};
-        console.log("Diagram useEffect load", stored, "chapterIndex:", chapterIndex);
-        console.log("Diagram props", {chapterIndex, onComplete});
-        const chapterProgress = stored[chapterIndex] || {};
-        setReadItems(chapterProgress.readItems || []);
-    }, [chapterIndex]);
+  useEffect(() => {
+    // טוען סטטוס מה-sessionStorage
+    const stored = JSON.parse(sessionStorage.getItem("progressData")) || {};
+    const chapterProgress = stored[chapterIndex] || {};
+    const alreadyRead = chapterProgress.readItems || [];
+
+    setReadItems(alreadyRead);
+
+    // אם כל הפופ-אפים כבר נקראו, מסמן סיום דיאגרם
+    if (alreadyRead.length === diagramItems.length) {
+        if (typeof onComplete === 'function') onComplete();
+    }
+}, [chapterIndex]);
 
     const saveProgress = (items) => {
         const stored = JSON.parse(sessionStorage.getItem("progressData")) || {};

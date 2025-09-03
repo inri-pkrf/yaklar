@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../componentsCss/IntroText.css';
 
 function IntroText() {
     const navigate = useNavigate();
+    const [showIntroDiv, setShowIntroDiv] = useState();
+
+
+    // const handleResizeIntroText = () => {
+    //     if (window.innerWidth >= 769) {
+    //         setShowIntroDiv(true);
+    //     } else {
+    //         setShowIntroDiv(false);
+    //     }
+    // }
 
     return (
         <div className="IntroText">
@@ -16,7 +26,6 @@ function IntroText() {
 
                 <div className='text-intro-div'>
                     <div className='title-div'></div>
-
                     <div className="text-intro">
                         בעזרת מוצר זה תוכלו ללמוד על מיצוי היכולות במרחב האזרחי, כדי לספק מענה מקיף ומהיר לפערים העולים מהרשות המקומית שלך.
                         <br /><br />

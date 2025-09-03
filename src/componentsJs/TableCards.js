@@ -36,10 +36,15 @@ function TableCards({ onComplete }) {
     ];
 
     // טעינת ההתקדמות מה-sessionStorage
-    useEffect(() => {
-        const storedReadItems = JSON.parse(sessionStorage.getItem('readItemsTableCards')) || [];
-        setReadItems(storedReadItems);
-    }, []);
+  useEffect(() => {
+    const storedReadItems = JSON.parse(sessionStorage.getItem('readItemsTableCards')) || [];
+    setReadItems(storedReadItems);
+
+    if (storedReadItems.length === CardsItems.length) {
+        // מסמן סיום שולחן עגול
+        if (typeof onComplete === 'function') onComplete();
+    }
+}, []);
 
     const handleClose = () => {
         if (selectedItem !== null && !readItems.includes(selectedItem)) {

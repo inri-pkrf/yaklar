@@ -15,14 +15,18 @@ function Cards({ data, title, updateCompleted, index, dataType }) {
 
     const [currentIndex, setCurrentIndex] = useState(loadProgress().currentIndex);
     const [userAnswers, setUserAnswers] = useState(loadProgress().answers);
-    const [diagramCompleted, setDiagramCompleted] = useState(loadProgress().diagramCompleted);
+    const [diagramCompleted, setDiagramCompleted] = useState(false);
+    const [tableCompleted, setTableCompleted] = useState(false);
 
     const currentItem = data[currentIndex];
     const isLastItem = currentIndex === data.length - 1;
     const isCorrectAnswer = userAnswers[currentIndex] === currentItem.correctAnswer;
     const isQuiz = currentItem.question;
-    const hideNextButton = isQuiz && (userAnswers[currentIndex] === undefined || !isCorrectAnswer);
-
+    const hideNextButton = (
+        (isQuiz && (userAnswers[currentIndex] === undefined || !isCorrectAnswer))
+        || ((dataType === 'AbilitiesData' && currentItem.id === 4 && !diagramCompleted))
+        || ((dataType === 'TableData' && currentItem.id === 1 && !tableCompleted))
+    );
     // פונקציה לעדכון sessionStorage בכל שינוי
     const saveProgress = (newData = {}) => {
         const stored = JSON.parse(sessionStorage.getItem("progressData")) || {};
@@ -45,28 +49,28 @@ function Cards({ data, title, updateCompleted, index, dataType }) {
         saveProgress({});
     }, [currentIndex, userAnswers, diagramCompleted]);
 
-const handleNext = () => {
-    if (isLastItem) {
-        // סמן את הפרק ב-home
-        if (typeof updateCompleted === 'function') {
-            updateCompleted(index);
+    const handleNext = () => {
+        if (isLastItem) {
+            // סמן את הפרק ב-home
+            if (typeof updateCompleted === 'function') {
+                updateCompleted(index);
+            }
+
+            // סמן את הפרק ב-progressData
+            const stored = JSON.parse(sessionStorage.getItem("progressData")) || {};
+            stored[index] = {
+                ...stored[index],
+                diagramCompleted: true,
+            };
+            sessionStorage.setItem("progressData", JSON.stringify(stored));
+
+            // עכשיו נווט ל-home
+            navigate('/home');
+        } else {
+            setCurrentIndex(currentIndex + 1);
+            window.scrollTo(0, 0);
         }
-
-        // סמן את הפרק ב-progressData
-        const stored = JSON.parse(sessionStorage.getItem("progressData")) || {};
-        stored[index] = {
-            ...stored[index],
-            diagramCompleted: true,
-        };
-        sessionStorage.setItem("progressData", JSON.stringify(stored));
-
-        // עכשיו נווט ל-home
-        navigate('/home');
-    } else {
-        setCurrentIndex(currentIndex + 1);
-        window.scrollTo(0, 0);
-    }
-};
+    };
 
 
     const handlePrev = () => {
@@ -76,16 +80,16 @@ const handleNext = () => {
         }
     };
 
-  const handleAnswerClick = (ansIndex) => {
-    // אם כבר בחרו תשובה נכונה, אל תאפשר שינוי
-    if (userAnswers[currentIndex] === currentItem.correctAnswer) return;
+    const handleAnswerClick = (ansIndex) => {
+        // אם כבר בחרו תשובה נכונה, אל תאפשר שינוי
+        if (userAnswers[currentIndex] === currentItem.correctAnswer) return;
 
-    setUserAnswers(prev => {
-        const newAnswers = { ...prev, [currentIndex]: ansIndex };
-        saveProgress({ answers: newAnswers });
-        return newAnswers;
-    });
-};
+        setUserAnswers(prev => {
+            const newAnswers = { ...prev, [currentIndex]: ansIndex };
+            saveProgress({ answers: newAnswers });
+            return newAnswers;
+        });
+    };
 
 
     const getExplanation = () => {
@@ -102,6 +106,11 @@ const handleNext = () => {
         saveProgress({ diagramCompleted: true });
     };
 
+    const handleTableComplete = () => {
+        setTableCompleted(true);
+        saveProgress({ tableCompleted: true });
+    };
+
     return (
         <div className="Cards">
             <div className="title1">{title}</div>
@@ -114,7 +123,7 @@ const handleNext = () => {
                 {dataType === 'AbilitiesData' && currentItem.id === 4 ? (
                     <Diagram onComplete={handleDiagramComplete} />
                 ) : dataType === 'TableData' && currentItem.id === 1 ? (
-                    <TableCards onComplete={handleDiagramComplete} />
+                    <TableCards onComplete={handleTableComplete} />
                 ) : (
                     <>
                         {currentItem.text && <div className='text-div-body'>{currentItem.text}</div>}
@@ -140,10 +149,10 @@ const handleNext = () => {
                                         <div
                                             key={i}
                                             className={`answer-item ${userAnswers[currentIndex] === i
-                                                    ? i === currentItem.correctAnswer
-                                                        ? 'rightanswer'
-                                                        : 'wronganswer'
-                                                    : ''
+                                                ? i === currentItem.correctAnswer
+                                                    ? 'rightanswer'
+                                                    : 'wronganswer'
+                                                : ''
                                                 }`}
                                             onClick={() => handleAnswerClick(i)}
                                         >

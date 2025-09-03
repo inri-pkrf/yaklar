@@ -1,4 +1,4 @@
-.SimulationGame{
+.SimulationGame {
     z-index: 100;
     height: 100%;
     width: 100%;
@@ -6,15 +6,15 @@
     position: absolute;
 }
 
-.game-header{
+.game-header {
     width: 100%;
     position: absolute;
     background-color: #f7b37c;
     height: 14vh;
-    border-bottom: 1px solid #000; 
+    border-bottom: 1px solid #000;
 }
 
-.title-game{
+.title-game {
     direction: rtl;
     font-family: 'Heebo', sans-serif;
     font-size: 5.5vw;
@@ -40,29 +40,29 @@
 }
 
 .circle-img img {
-    width: 75%; 
+    width: 75%;
     height: auto;
     object-fit: contain;
 }
 
-.logos-SimulationGame{
+.logos-SimulationGame {
     position: absolute;
     top: 6vh;
 }
 
-#logo-phone{
+#logo-phone {
     left: 3vw;
     width: 6vw;
 }
 
-#logo-video{
+#logo-video {
     left: 11vw;
     width: 8vw;
 }
 
 /* ------------------------------------------------------------ */
 
-.texing-div{
+.texing-div {
     width: 100%;
     height: 46vh;
     position: absolute;
@@ -72,17 +72,17 @@
 
 /* ------------------------------------------------------------- */
 
-.keybord-div{
+.keybord-div {
     width: 100%;
     position: absolute;
     bottom: 0vh;
     background-color: #f7b37c;
     height: 30vh;
-    border-top: 1px solid #000; 
+    border-top: 1px solid #000;
 }
 
 
-.answers-divs{
+.answers-divs {
     height: 11vh;
     width: 34vw;
     background-color: #eeeeee;
@@ -99,15 +99,15 @@
     padding-right: 4vw;
 }
 
-#answer1-div{
+#answer1-div {
     left: 53vw;
 }
 
-#answer2-div{
+#answer2-div {
     left: 6vw;
 }
 
-.btn-to-home{
+.btn-to-home {
     font-family: 'Heebo', sans-serif;
     font-size: 4.5vw;
     color: #333;
@@ -134,11 +134,11 @@
     direction: rtl;
     padding-left: 3vw;
     padding-right: 3vw;
-    border: 1px solid #000; 
+    border: 1px solid #000;
 }
 
 
-.btn-to-send{
+.btn-to-send {
     position: absolute;
     bottom: 32vh;
     left: 2vw;
@@ -148,7 +148,7 @@
 
 /* ------------------------------------ */
 
-.side1-text{
+.side1-text {
     height: 10vh;
     width: 34vw;
     background-color: #cfe2f3;
@@ -168,7 +168,7 @@
     margin-bottom: 2vh;
 }
 
-.side2-text{
+.side2-text {
     height: 10vh;
     width: 34vw;
     background-color: #9fc5e8;
@@ -189,12 +189,12 @@
 }
 
 .is-clicked {
-    background-color: #c7c6c6; 
+    background-color: #c7c6c6;
     /* color: white; */
     transition: background-color 0.3s ease-in-out;
 }
 
-.message-sent{
+.message-sent {
     font-family: 'Heebo', sans-serif;
     color: #2c2b2b;
     font-size: 5vw;
@@ -203,7 +203,7 @@
     left: 4vw;
 }
 
-.end-chat-btn{
+.end-chat-btn {
     height: 5vh;
     width: 43vw;
     background-color: pink;
@@ -221,4 +221,217 @@
     padding-left: 4vw;
     padding-right: 4vw;
     border: 1px solid;
+}
+
+/* Desktop */
+@media screen and (min-width: 1025px) {
+    .SimulationGame {
+        height: 100%;
+        width: 100%;
+        background-color: rgb(227, 212, 200);
+        position: absolute;
+        overflow-x: hidden;
+    }
+
+    .game-header {
+        width: 100%;
+        position: absolute;
+        background-color: #f7b37c;
+        height: 12vh;
+        border-bottom: 1px solid #000;
+    }
+
+    .title-game {
+              direction: rtl;
+        font-family: 'Heebo', sans-serif;
+        font-size: 32px;
+        position: absolute;
+        top: 2vh;
+        right: 13vw;
+    }
+
+    .circle-img {
+             width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 1px solid #000;
+        display: flex
+;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        background-color: #efefef;
+        position: absolute;
+        top: 2vh;
+        right: 4vw;
+    }
+
+    .circle-img img {
+        width: 70%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .logos-SimulationGame {
+        position: absolute;
+        top: 4vh;
+    }
+
+    #logo-phone {
+          left: 5vw;
+        width: 40px;
+        top: 5vh;
+    }
+
+    #logo-video {
+             left: 11vw;
+        width: 60px;
+    }
+
+    .texing-div {
+        width: 100%;
+        height: 50vh;
+        position: absolute;
+        bottom: 35vh;
+        overflow-y: auto;
+    }
+
+    .keybord-div {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        background-color: #f7b37c;
+        height: 25vh;
+        border-top: 1px solid #000;
+    }
+
+    .answers-divs {
+        height: 10vh;
+        width: 20vw;
+        background-color: #eeeeee;
+        border-radius: 20px;
+        position: absolute;
+        bottom: 5vh;
+        text-align: center;
+        font-family: 'Heebo', sans-serif;
+        color: grey;
+        font-size: 2.5vmin;
+        padding-top: 3vh;
+        padding-bottom: 3vh;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        direction: rtl;
+        cursor: pointer;
+    }
+
+    #answer1-div {
+        left: 58vw;
+    }
+
+    #answer2-div {
+        left: 24vw;
+    }
+
+    .btn-to-home {
+        font-family: 'Heebo', sans-serif;
+        font-size: 25px;
+        color: #333;
+        position: absolute;
+        bottom: 2vh;
+        right: 3vw;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .input-div {
+        position: absolute;
+        bottom: 28vh;
+        right: 1vw;
+        font-family: 'Heebo', sans-serif;
+        font-size: 23px;
+        color: #333;
+        background-color: #eeeeee;
+        border-radius: 20px;
+        height: 3vh;
+        width: 89vw;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        padding: 1vh 2vw;
+        direction: rtl;
+        border: 1px solid #000;
+    }
+
+    .btn-to-send {
+        position: absolute;
+        bottom: 28vh;
+        left: 2vw;
+        width: 50px;
+        transform: rotate(180deg);
+    }
+
+    .side1-text {
+        height: 8vh;
+        width: 300px;
+        background-color: #cfe2f3;
+        border-radius: 20px;
+        position: relative;
+        top: 2vh;
+        left: 78vw;
+        text-align: center;
+        font-family: 'Heebo', sans-serif;
+        color: #2c2b2b;
+        font-size: 20px;
+        padding: 3vh 2vw;
+        direction: rtl;
+        margin-bottom: 2vh;
+    }
+
+    .side2-text {
+            height: 8vh;
+        width: 300px;
+        background-color: #9fc5e8;
+        border-radius: 20px;
+        position: relative;
+        top: 2vh;
+        left: 5vw;
+        text-align: center;
+        font-family: 'Heebo', sans-serif;
+        color: #2c2b2b;
+        font-size: 20px;
+        padding: 3vh 2vw;
+        direction: rtl;
+        margin-bottom: 2vh;
+    }
+
+    .is-clicked {
+        background-color: #c7c6c6;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    .message-sent {
+        font-family: 'Heebo', sans-serif;
+        color: #2c2b2b;
+        font-size: 20px;
+        position: relative;
+    }
+
+    .end-chat-btn {
+        height: 5vh;
+        width: 250px;
+        background-color: pink;
+        border-radius: 62px;
+        position: absolute;
+        right: 50%;
+        transform: translateX(50%);
+        text-align: center;
+        font-family: 'Heebo', sans-serif;
+        color: rgb(185 99 99);
+        font-size: 37px;
+        font-weight: bold;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        border: 1px solid;
+        cursor: pointer;
+    }
 }

@@ -1,176 +1,386 @@
-.Cards{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    height: 100vh; /* Ensure the entire screen is used */
-    background-color: #f2e5dd;
-    overflow-y: auto;
-    overflow-x:hidden;
-}
+/* Mobile */
+@media screen and (max-width: 768px) {
+    .Cards {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100vh;
+        /* Ensure the entire screen is used */
+        background-color: #f2e5dd;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
 
-.title1 {
-    font-family: 'Karantina';
-    font-size: 10.8vw;
-    color: #175a85;
-    margin-top: 15vh;
-    text-align: center;
-    width: 60vw;
+    .title1 {
+        font-family: 'Karantina';
+        font-size: 10.8vw;
+        color: #175a85;
+        margin-top: 15vh;
+        text-align: center;
+        width: 60vw;
 
-}
+    }
 
-.text-continer-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    width: 94vw;
-    background-color: #e3d4c8;
-    border-radius: 107px 107px 0 0;
-    flex-grow: 1; 
-    padding-bottom: 10vh; 
-    top: 3vh;
-    position: relative;
-}
+    .text-continer-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 94vw;
+        background-color: #e3d4c8;
+        border-radius: 107px 107px 0 0;
+        flex-grow: 1;
+        padding-bottom: 10vh;
+        top: 3vh;
+        position: relative;
+    }
 
-.text-div-body {
-    font-family: 'Heebo', sans-serif;
-    font-size: 4.7vw;
-    color: #3b3a3a;
-    text-align: right;
-    width: 86vw;
-    padding: 5vw;
-    position: relative;
-    margin-top: 4vh;
-    min-height: 0;
-    direction: rtl;
-}
+    .text-div-body {
+        font-family: 'Heebo', sans-serif;
+        font-size: 4.7vw;
+        color: #3b3a3a;
+        text-align: right;
+        width: 86vw;
+        padding: 5vw;
+        position: relative;
+        margin-top: 4vh;
+        min-height: 0;
+        direction: rtl;
+    }
 
-.title-div-body, .logos, .title2 {
-    width: 100%;
-    text-align: center;
-}
+    .title-div-body,
+    .logos,
+    .title2 {
+        width: 100%;
+        text-align: center;
+    }
 
-.title-div-body{
-    width: 94vw;
-    height: 17vh;
-    background-color: #d6c5b6;
-    border-radius: 25vw 25vw 0 0;
-}
+    .title-div-body {
+        width: 94vw;
+        height: 17vh;
+        background-color: #d6c5b6;
+        border-radius: 25vw 25vw 0 0;
+    }
 
 
-.logos {
-    height: auto;
-    width: 10vw;
-    margin-top: -15vh;
-}
+    .logos {
+        height: auto;
+        width: 10vw;
+        margin-top: -15vh;
+    }
 
-.title2 {
-    font-family: 'Karantina';
-    font-size: 10vw;
-    color: black;
-    margin-top: 1vh;
-    direction: rtl;
-}
+    .title2 {
+        font-family: 'Karantina';
+        font-size: 10vw;
+        color: black;
+        margin-top: 1vh;
+        direction: rtl;
+    }
 
-.btns-div {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    width: 90%;
-    padding: 2vh 10vw;
-    margin-top: auto; /* Ensure buttons are at the bottom */
-}
+    .btns-div {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        width: 90%;
+        padding: 2vh 10vw;
+        margin-top: auto;
+        /* Ensure buttons are at the bottom */
+    }
 
-.btns-text {
-    font-family: 'Karantina';
-    color: #175a85;
-    font-size: 5vmin;
-    position: relative;
-}
+    .btns-text {
+        font-family: 'Karantina';
+        color: #175a85;
+        font-size: 5vmin;
+        position: relative;
+    }
 
-.btns {
-    height: auto;
-    width: 10vw;
-    display: flex;
-}
+    .btns {
+        height: auto;
+        width: 10vw;
+        display: flex;
+    }
 
-#btn-next-img {
-    transform: rotate(180deg);
-}
+    #btn-next-img {
+        transform: rotate(180deg);
+    }
 
-#btn-prev-img {
-    transform: rotate(0deg);
-}
+    #btn-prev-img {
+        transform: rotate(0deg);
+    }
 
-.btn-prev-div.hidden,
-.btn-next-div.hidden {
-    visibility: hidden; /* Keeps space but hides the button */
-}
+    .btn-prev-div.hidden,
+    .btn-next-div.hidden {
+        visibility: hidden;
+        /* Keeps space but hides the button */
+    }
 
-.quiz-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-}
+    .quiz-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
 
-.question{
-    font-family: 'Heebo', sans-serif;
-    font-size: 4.7vw;
-    color: grey;
-    text-align: center;
-    width: 86vw;
-    padding: 5vw;
-    position: relative;
-    margin-top: 4vh;
-    min-height: 0;
-    direction: rtl;
-}
+    .question {
+        font-family: 'Heebo', sans-serif;
+        font-size: 4.7vw;
+        color: grey;
+        text-align: center;
+        width: 86vw;
+        padding: 5vw;
+        position: relative;
+        margin-top: 4vh;
+        min-height: 0;
+        direction: rtl;
+    }
 
-/* .answers{
+    /* .answers{
     display: flexbox;
 } */
 
-.answer-item{
-    width: 70vw;
-    height: 7vh;
-    margin-bottom: 2vh;
-    padding: 2vh;
-    font-family: 'Heebo', sans-serif;
-    text-align: center;
-    color: rgb(66, 65, 65);
-    background-color: #f2e5dd;
-    border-radius: 5vw;
+    .answer-item {
+        width: 70vw;
+        height: 7vh;
+        margin-bottom: 2vh;
+        padding: 2vh;
+        font-family: 'Heebo', sans-serif;
+        text-align: center;
+        color: rgb(66, 65, 65);
+        background-color: #f2e5dd;
+        border-radius: 5vw;
+    }
+
+    .rightanswer {
+        background-color: rgb(182, 215, 168);
+    }
+
+    .wronganswer {
+        background-color: rgb(234, 153, 153);
+        ;
+    }
+
+    .explanationAnswer {
+        font-family: 'Heebo', sans-serif;
+        font-size: 4.7vw;
+        color: grey;
+        text-align: center;
+        width: 86vw;
+        padding: 5vw;
+        position: relative;
+        direction: rtl;
+    }
+
+    .video-container {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .video-player {
+        width: 88%;
+        max-width: 600px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 }
 
-.rightanswer{
-    background-color: rgb(182, 215, 168)    ;
-}
 
-.wronganswer{
-    background-color:rgb(234, 153, 153);    ;
-}
+/* Desktop */
+@media screen and (min-width: 1025px) {
+    .Cards {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100vh;
+        /* Ensure the entire screen is used */
+        background-color: #f2e5dd;
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
 
-.explanationAnswer{
-    font-family: 'Heebo', sans-serif;
-    font-size: 4.7vw;
-    color: grey;
-    text-align: center;
-    width: 86vw;
-    padding: 5vw;
-    position: relative;
-    direction: rtl;
-}
+    .title1 {
+        font-family: 'Karantina';
+        font-size: 5.8vw;
+        color: #175a85;
+        margin-top: 11vh;
+        text-align: center;
+        width: 60vw;
+    }
 
-.video-container {
-    text-align: center;
-    margin: 20px 0;
-}
+    .text-continer-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 94vw;
+        background-color: #e3d4c8;
+        border-radius: 182px 174px 0 0;
+        flex-grow: 1;
+        padding-bottom: 10vh;
+        top: 3vh;
+        position: relative;
 
-.video-player {
-    width: 88%;
-    max-width: 600px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .text-div-body {
+     font-family: 'Assistant', sans-serif;
+        font-size: 1.5vw;
+        color: #3b3a3a;
+        text-align: right;
+        width: 88vw;
+        height: 47%;
+        top: 2vh;
+        position: relative;
+        direction: rtl;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .title-div-body,
+    .logos,
+    .title2 {
+        width: 100%;
+        text-align: center;
+    }
+
+    .title-div-body {
+        width: 94vw;
+        height: 14vh;
+        background-color: #d6c5b6;
+        border-radius: 13vw 13vw 0 0;
+    }
+
+
+    .logos {
+        height: auto;
+        width: 4vw;
+        position: absolute;
+        top: 3vh;
+        right: 25vh;
+    }
+
+    .title2 {
+        font-family: 'Karantina';
+        font-size: 4vw;
+        color: black;
+        position: absolute;
+        top: 3vh;
+        right: -34vh;
+        direction: rtl;
+    }
+
+    .btns-div {
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        width: 95%;
+        padding: 2vh 11vw;
+        cursor: pointer;
+        top: 62vh;
+    }
+
+    .btns-text {
+        font-family: 'Karantina';
+        color: #175a85;
+        font-size: 4vmin;
+        position: relative;
+    }
+
+    .btns {
+        height: auto;
+        width: 3vw;
+        display: flex;
+    }
+
+    #btn-next-img {
+        transform: rotate(180deg);
+    }
+
+    #btn-prev-img {
+        transform: rotate(0deg);
+    }
+
+    .btn-prev-div.hidden,
+    .btn-next-div.hidden {
+        visibility: hidden;
+        /* Keeps space but hides the button */
+    }
+
+    .quiz-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .question {
+        font-family: 'Assistant', sans-serif;
+        font-size: 2vw;
+        color: grey;
+        text-align: center;
+        width: 86vw;
+        /* padding: 5vw; */
+        position: relative;
+        /* margin-top: 1vh; */
+        min-height: 0;
+        direction: rtl;
+        top: 4vh;
+        margin-bottom: 5vh;
+    }
+
+    /* .answers{
+    display: flexbox;
+} */
+
+    .answer-item {
+        width: 41vw;
+        height: 4vh;
+        margin-bottom: 2vh;
+        padding: 2vh;
+        font-family: 'Assistant', sans-serif;
+        text-align: center;
+        color: rgb(66, 65, 65);
+        background-color: #f2e5dd;
+        border-radius: 5vw;
+        font-size: 2rem;
+        top: 4vh;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .rightanswer {
+        background-color: rgb(182, 215, 168);
+    }
+
+    .wronganswer {
+        background-color: rgb(234, 153, 153);
+        ;
+    }
+
+    .explanationAnswer {
+        font-family: 'Assistant', sans-serif;
+        font-size: 1.5vw;
+        color: grey;
+        text-align: center;
+        width: 86vw;
+        position: relative;
+        direction: rtl;
+        bottom: -5vh;
+        position: relative;
+    }
+
+    .video-container {
+        text-align: center;
+        margin: 20px 0;
+        position: relative;
+        bottom: 6vh;
+    }
+
+    .video-player {
+        width: 100%;
+        max-width: 600px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 }

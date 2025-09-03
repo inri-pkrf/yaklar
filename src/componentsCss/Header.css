@@ -1,33 +1,72 @@
-.header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 11vh;
-    z-index: 100;
-    background-color: #f2e5dd;
+/* Mobile */
+@media screen and (max-width: 768px) {
+    .header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 11vh;
+        z-index: 100;
+        background-color: #f2e5dd;
+    }
+
+    .collegeLogoText {
+        height: 16vmin;
+        /* cursor: pointer; */
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    .homeBtn {
+        position: absolute;
+        top: 21px;
+        left: 19px;
+        width: 11vw;
+        cursor: pointer;
+    }
+
+    .orangeTriangle {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 42vw;
+        height: auto;
+        z-index: -1;
+    }
 }
 
-.collegeLogoText {
-    height: 16vmin;
-    /* cursor: pointer; */
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
+/* Desktop */
+@media screen and (min-width: 1025px) {
+     .header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 11vh;
+        z-index: 100;
+        background-color: #f2e5dd;
+    }
 
-.homeBtn {
-    position: absolute;
-    top: 21px;
-    left: 19px;
-    width: 11vw;
-    cursor: pointer;
-}
+    .collegeLogoText {
+        height: 10vmin;
+        position: absolute;
+        top: 10px;
+        right: 15px;
+    }
 
-.orangeTriangle {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 42vw;
-    height: auto;
-    z-index: -1;
+    .homeBtn {
+            position: absolute;
+        top: 22px;
+        left: 49px;
+        width: 4vw;
+        cursor: pointer;
+    }
+
+    .orangeTriangle {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 13vw;
+        height: auto;
+        z-index: -1;
+    }
 }

@@ -5,15 +5,16 @@ import '../componentsCss/Home.css';
 function Home() {
     const navigate = useNavigate();
     const [completed, setCompleted] = useState([false, false, false, false]);
+    const isDesktop = window.innerWidth >= 1025;
 
     // בודק אם הסימולציה פתוחה לפי ה-progress או sessionStorage
     const simulationUnlocked = completed.every(c => c === true) || sessionStorage.getItem('simulationCompleted') === 'true';
 
     const [simulationCompleted, setSimulationCompleted] = useState(false);
 
-useEffect(() => {
-    setSimulationCompleted(sessionStorage.getItem('simulationCompleted') === 'true');
-}, []);
+    useEffect(() => {
+        setSimulationCompleted(sessionStorage.getItem('simulationCompleted') === 'true');
+    }, []);
 
     // Load the completion state from sessionStorage
     useEffect(() => {
@@ -68,7 +69,13 @@ useEffect(() => {
                         key={index}
                         className="boxText"
                         onClick={() => navigate(navArray[index])}
-                        style={text === "שולחן עגול" ? { width: "8vh", position: "relative", bottom: "2vh", left: "-3vw" } : {}}
+                        style={
+                            text === "שולחן עגול"
+                                ? isDesktop
+                                    ? { width: "10vh", position: "relative", bottom: "0vh", left: "1vw" } // עיצוב לדסקטופ
+                                    : { width: "8vh", position: "relative", bottom: "2vh", left: "-3vw" }  // עיצוב למובייל
+                                : {}
+                        }
                     >
                         {text}
                     </span>
@@ -91,13 +98,13 @@ useEffect(() => {
                     cursor: simulationUnlocked ? 'pointer' : 'default'
                 }}
             >
-               <img
-    src={process.env.PUBLIC_URL + (simulationCompleted
-        ? '/assests/imgs/SboxOpen.png'
-        : '/assests/imgs/SboxClose.png')}
-    className="SboxClose"
-    alt="Sbox"
-/>
+                <img
+                    src={process.env.PUBLIC_URL + (simulationCompleted
+                        ? '/assests/imgs/SboxOpen.png'
+                        : '/assests/imgs/SboxClose.png')}
+                    className="SboxClose"
+                    alt="Sbox"
+                />
                 <span className="SboxText">
                     סימולציה
                 </span>

@@ -1,3 +1,5 @@
+/* Mobile */
+@media screen and (max-width: 768px) {
 .text-table {
     font-family: 'Heebo', sans-serif;
     font-size: 4.7vw;
@@ -58,4 +60,72 @@
     transform: translateX(50%);
     margin-top: 3vh;
     width: 68vw;
+}
+
+}
+
+
+/* Desktop */
+@media screen and (min-width: 1025px) {
+
+    .text-table {
+        font-family: 'Assistant', sans-serif;
+    font-size: 2vw;
+    color: grey;
+    text-align: center;
+    width: 86vw;
+    position: relative;
+    margin-top: 4vh;
+    min-height: 0;
+    direction: rtl;
+}
+
+.cards-container {
+    display: grid; 
+    margin-top: 130px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3vh 3vw;
+}
+
+
+.card-item-wrapper {
+    display: flex;
+    justify-content: center; 
+}
+
+.card-item {
+  width: 189px;
+        height: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #60abcf;
+    background: none;
+    padding: 10px;
+    text-align: center;
+    border-radius: 2vh;
+    font-family: 'Karantina';
+    color: #60abcf;
+    font-size: 2vw;
+    cursor: pointer;
+}
+
+
+
+.readDivCard {
+    background-color:  #60abcf; 
+    border: 2px solid #60abcf; 
+    color: white;
+}
+
+.table{
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    width: 30vw;
+    bottom: 0vh;
+}
 }
