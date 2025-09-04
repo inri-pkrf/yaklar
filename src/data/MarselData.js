@@ -3,7 +3,7 @@ const MarselData = [
     {
         id: 1,
         logoSrc: `${process.env.PUBLIC_URL}/assests/imgs/logos/video.png`,
-        title: "היכרות המרסל:",
+        title: 'היכרות המרס"ל:',
         text: [
             <>
                 צפו בסרטון הבא להיכרות עם עם המרס״ל - מרכז הסיוע לאזרח.

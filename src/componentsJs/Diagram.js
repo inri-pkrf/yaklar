@@ -9,50 +9,53 @@ function Diagram({ onComplete, chapterIndex = 0 }) {
     const diagramItems = ["פיקוד", "מחוז", "נפה", "רשות"];
     const popUpText = [
         <ul>
-            <li>קבלת הדרישות מהמרס“ל המחוזי ע“ג מערכת המרס“ל.</li>
+            <li>קבלת הדרישות מקצין מיצוי יכולות מחוזי על גבי מערכת המרס“ל.</li>
             <li>ביצוע פורום מיצוי יכולות אל מול המחוזות.</li>
-            <li>גיבוש המענה מול משרדי הממשלה ברמה הלאומית.</li>
+            <li>גיבוש המענה מול משרדי הממשלה ברמה הלאומית .</li>
             <li>גיבוש המענה מול ארגוני התנדבות ברמה הלאומית.</li>
             <li>גיבוש הצורך מול מגזר שני עסקי ומתן מענה ע“י תורמים.</li>
         </ul>,
         <ul>
-            <li>קבלת הדרישות מתא רשויות בנפה ע“ג מערכת המרס“ל.</li>
+            <li>קבלת הדרישות מקצין מיצוי היכולות בנפה על גבי מערכת המרס“ל.</li>
             <li>ביצוע פורום מיצוי יכולות מחוזי אל מול כלל הבקשות.</li>
             <li>גיבוש מענה ודרכי פיתרון למול משרדי הממשלה.</li>
             <li>העלאת הצורך מול ארגוני התנדבות מחוזיים.</li>
             <li>שיח תיאום וסנכרון מול מפקחת מחוזית של משרד הרווחה לקבלת תמ“צ עדכני טרם העברת הבקשה לפיקוד.</li>
         </ul>,
         <ul>
-            <li>קבלת הדרישות ממפקד היקל“ר ע“ג מערכת המרס“ל</li>
+            <li>פערים שלא נפתרו ברמה המקומית יעלו על ידי מפקד היקל"ר לנפה באמצעות מערכת המרס"ל. </li>
             <li>גיבוש התיעדוף אל מול כלל הבקשות טרם פורום מיצוי יכולות.</li>
             <li>ביצוע פורום מיצוי יכולות והצגת המגמות והפתרונות.</li>
             <li>תבחן ותגבש מענה נפתי תוך סיוע מרשויות שכנות.</li>
         </ul>,
         <ul>
-            <li>מיצוי מערך מתנדבים רשותי בהובלת רכז התנדבות/מחזיק תיק מתנדבים ברשות כחלק מתא משאבי קהילה.</li>
-            <li>הפעלת חפ“ק התנדבות רשותי.</li>
-            <li>הפעלת ועדי יישובים, ועדי שכונות, ועדי הורים / צח“י במוא“ז.</li>
-            <li>הפעלת בני נוער תנועות נוער מתנ“סים ש“ש מכינות קדם צבאיות שירות לאומי.</li>
+            הכוונת מאמצי הסיוע והמתנדבים תוך הערכת מצב רשותית וגיבוש תמונת מצב.
+            <li>מיצוי מערך מתנדבים רשותי (כולל ארגוני התנדבות בגזרת הרשות) בהובלת רכז התנדבות כחלק מהפעלת חמ"ל התנדבות רשותי.</li>
+            <li>הפעלת ועדי יישובים, ועדי שכונות, ועדי הורים/ צח“י במוא“ז.</li>
+            <li>הפעלת בני נוער, תנועות נוער, מתנ“סים, שנות שירות, מכינות קדם צבאיות, שירות לאומי.</li>
+            <li>גיוס מתנדבים ספונטניים.</li>
             <li>הפעלת פעילים קהילתיים, מובילי דעת קהל, מרכזים קהילתיים.</li>
             <li>הפעלת הגיל השלישי, מוסדות השכלה גבוהה.</li>
             <li>הפעלת חוזים נצורים וקשר מול מגזר עסקי ברשות.</li>
+            <li>פנייה למשרדי ממשלה</li>
+            <li>רכישת אמצעים (תקציב הג"א/ תב"ר)</li>
         </ul>,
     ];
 
     // טוען את הסטטוס מה־sessionStorage
-  useEffect(() => {
-    // טוען סטטוס מה-sessionStorage
-    const stored = JSON.parse(sessionStorage.getItem("progressData")) || {};
-    const chapterProgress = stored[chapterIndex] || {};
-    const alreadyRead = chapterProgress.readItems || [];
+    useEffect(() => {
+        // טוען סטטוס מה-sessionStorage
+        const stored = JSON.parse(sessionStorage.getItem("progressData")) || {};
+        const chapterProgress = stored[chapterIndex] || {};
+        const alreadyRead = chapterProgress.readItems || [];
 
-    setReadItems(alreadyRead);
+        setReadItems(alreadyRead);
 
-    // אם כל הפופ-אפים כבר נקראו, מסמן סיום דיאגרם
-    if (alreadyRead.length === diagramItems.length) {
-        if (typeof onComplete === 'function') onComplete();
-    }
-}, [chapterIndex]);
+        // אם כל הפופ-אפים כבר נקראו, מסמן סיום דיאגרם
+        if (alreadyRead.length === diagramItems.length) {
+            if (typeof onComplete === 'function') onComplete();
+        }
+    }, [chapterIndex]);
 
     const saveProgress = (items) => {
         const stored = JSON.parse(sessionStorage.getItem("progressData")) || {};
@@ -68,27 +71,27 @@ function Diagram({ onComplete, chapterIndex = 0 }) {
         }
     };
 
-const handleOpen = (index) => {
-    setSelectedItem(index);
+    const handleOpen = (index) => {
+        setSelectedItem(index);
 
-    const stored = JSON.parse(sessionStorage.getItem("progressData")) || {};
-    const chapterProgress = stored[chapterIndex] || {};
-    const alreadyRead = chapterProgress.readItems || [];
+        const stored = JSON.parse(sessionStorage.getItem("progressData")) || {};
+        const chapterProgress = stored[chapterIndex] || {};
+        const alreadyRead = chapterProgress.readItems || [];
 
-    if (!alreadyRead.includes(index)) {
-        const updated = [...alreadyRead, index];
-        stored[chapterIndex] = { ...chapterProgress, readItems: updated };
-        sessionStorage.setItem("progressData", JSON.stringify(stored));
-        setReadItems(updated);
+        if (!alreadyRead.includes(index)) {
+            const updated = [...alreadyRead, index];
+            stored[chapterIndex] = { ...chapterProgress, readItems: updated };
+            sessionStorage.setItem("progressData", JSON.stringify(stored));
+            setReadItems(updated);
 
-        console.log("Opened pop-up:", index, "Updated readItems:", updated);
-        console.log("sessionStorage now:", JSON.parse(sessionStorage.getItem("progressData")));
+            console.log("Opened pop-up:", index, "Updated readItems:", updated);
+            console.log("sessionStorage now:", JSON.parse(sessionStorage.getItem("progressData")));
 
-        if (updated.length === diagramItems.length && typeof onComplete === 'function') {
-            onComplete();
+            if (updated.length === diagramItems.length && typeof onComplete === 'function') {
+                onComplete();
+            }
         }
-    }
-};
+    };
 
     const handleClose = () => {
         setSelectedItem(null);

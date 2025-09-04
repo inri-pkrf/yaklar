@@ -28,21 +28,21 @@ function Home() {
         setCompleted(completedArray);
     }, []);
 
-    const boxTexts = ["יכולות", "תפקידים", "שולחן עגול", "מרס\"ל"];
+    const boxTexts = ["מיצוי יכולות", "תפקידים", "שולחן עגול וועדת התנדבות", "מרס\"ל"];
     const navArray = ["/abilities", "/roles", "/table", "/marsel"];
 
     return (
         <div className="Home">
             <div className="title">
                 לומדת
-                <br />
                 מש"ק התנדבות ביקל"ר
             </div>
+
 
             <div className="home-text">
                 יש ללחוץ ולעבור על התוכן בכל קופסא בכדי להעשיר את ארגז הכלים שלכם לפעולה. יש להתקדם לפי הסדר כדי לחשוף את התכנים.
                 <br /><br />
-                בסיום כל נושא נשאל כמה שאלות הבנה שחובה לענות עליהן כדי להתקדם. זה יעזור לנו ולכם להבין שכולנו בכיוון הנכון.
+                בסיום כל נושא תישאל שאלת הבנה שחובה לענות עליה כדי להתקדם - זה יעזור לנו ולכם להבין שכולנו בכיוון הנכון.
             </div>
 
             <div className="flexBox-boxes">
@@ -64,22 +64,39 @@ function Home() {
             </div>
 
             <div className="flexBox-text">
-                {boxTexts.map((text, index) => (
-                    <span
-                        key={index}
-                        className="boxText"
-                        onClick={() => navigate(navArray[index])}
-                        style={
-                            text === "שולחן עגול"
-                                ? isDesktop
-                                    ? { width: "10vh", position: "relative", bottom: "0vh", left: "1vw" } // עיצוב לדסקטופ
-                                    : { width: "8vh", position: "relative", bottom: "2vh", left: "-3vw" }  // עיצוב למובייל
-                                : {}
-                        }
-                    >
-                        {text}
-                    </span>
-                ))}
+                {boxTexts.map((text, index) => {
+                    if (text === "שולחן עגול וועדת התנדבות") {
+                        return (
+                            <React.Fragment key={index}>
+                                <span
+                                    id={`boxText-${index}-1`}
+                                    className="boxText"
+                                    onClick={() => navigate(navArray[index])}
+                                >
+                                    שולחן עגול
+                                </span>
+                                <span
+                                    id={`boxText-${index}-2`}
+                                    className="boxText"
+                                    onClick={() => navigate(navArray[index])}
+                                >
+                                    וועדת התנדבות
+                                </span>
+                            </React.Fragment>
+                        );
+                    }
+
+                    return (
+                        <span
+                            key={index}
+                            id={`boxText-${index}`}
+                            className="boxText"
+                            onClick={() => navigate(navArray[index])}
+                        >
+                            {text}
+                        </span>
+                    );
+                })}
             </div>
 
             {/* קופסת סימולציה */}
