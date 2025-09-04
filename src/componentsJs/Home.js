@@ -28,8 +28,35 @@ function Home() {
         setCompleted(completedArray);
     }, []);
 
-    const boxTexts = ["מיצוי יכולות", "תפקידים", "שולחן עגול וועדת התנדבות", "מרס\"ל"];
     const navArray = ["/abilities", "/roles", "/table", "/marsel"];
+
+    // מגדירים מערך של קופסאות עם תמונות נפרדות לכל קופסא
+    const boxes = [
+        {
+            text: "מיצוי יכולות",
+            openImg: '/assests/imgs/boxes/open/Oabilities.png',
+            closeImg: '/assests/imgs/boxes/close/Cabilities.png',
+            nav: "/abilities"
+        },
+        {
+            text: "תפקידים",
+            openImg: '/assests/imgs/boxes/open/Oroles.png',
+            closeImg: '/assests/imgs/boxes/close/Croles.png',
+            nav: "/roles"
+        },
+        {
+            text: "שולחן עגול וועדת התנדבות",
+            openImg: '/assests/imgs/boxes/open/Otable.png',
+            closeImg: '/assests/imgs/boxes/close/Ctable.png',
+            nav: "/table"
+        },
+        {
+            text: "מרס\"ל",
+            openImg: '/assests/imgs/boxes/open/Omarsel.png',
+            closeImg: '/assests/imgs/boxes/close/Cmarsel.png',
+            nav: "/marsel"
+        }
+    ];
 
     return (
         <div className="Home">
@@ -46,58 +73,21 @@ function Home() {
             </div>
 
             <div className="flexBox-boxes">
-                {boxTexts.map((text, index) => (
+                {boxes.map((box, index) => (
                     <div
                         key={index}
                         className="boxContainer"
-                        onClick={() => navigate(navArray[index])}
+                        onClick={() => navigate(box.nav)}
                     >
                         <img
-                            src={completed[index]
-                                ? process.env.PUBLIC_URL + '/assests/imgs/boxOpen.png'
-                                : process.env.PUBLIC_URL + '/assests/imgs/boxClose.png'}
+                            src={completed[index] ? process.env.PUBLIC_URL + box.openImg : process.env.PUBLIC_URL + box.closeImg}
                             className="boxClose"
-                            alt={text}
+                            alt={box.text}
                         />
                     </div>
                 ))}
             </div>
 
-            <div className="flexBox-text">
-                {boxTexts.map((text, index) => {
-                    if (text === "שולחן עגול וועדת התנדבות") {
-                        return (
-                            <React.Fragment key={index}>
-                                <span
-                                    id={`boxText-${index}-1`}
-                                    className="boxText"
-                                    onClick={() => navigate(navArray[index])}
-                                >
-                                    שולחן עגול
-                                </span>
-                                <span
-                                    id={`boxText-${index}-2`}
-                                    className="boxText"
-                                    onClick={() => navigate(navArray[index])}
-                                >
-                                    וועדת התנדבות
-                                </span>
-                            </React.Fragment>
-                        );
-                    }
-
-                    return (
-                        <span
-                            key={index}
-                            id={`boxText-${index}`}
-                            className="boxText"
-                            onClick={() => navigate(navArray[index])}
-                        >
-                            {text}
-                        </span>
-                    );
-                })}
-            </div>
 
             {/* קופסת סימולציה */}
             <div

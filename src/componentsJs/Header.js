@@ -23,6 +23,16 @@ function Header() {
                 alt="orangeTriangle"
                 className="orangeTriangle"
             />
+
+                  {/* <img
+                            src={
+                                completed[index]
+                                    ? process.env.PUBLIC_URL + `/assests/imgs/boxes/open/O${key}.png`
+                                    : process.env.PUBLIC_URL + `/assests/imgs/boxes/close/C${key}.png`
+                            }
+                            className="boxImage"
+                            alt={key}
+                        /> */}
         </header>
     );
 }
