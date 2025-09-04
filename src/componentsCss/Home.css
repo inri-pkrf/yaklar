@@ -59,6 +59,11 @@
         height: auto;
     }
 
+      .boxOpen{
+     width: 36vw;
+        height: auto;
+    }
+
     .flexBox-boxes img:nth-child(1),
     .flexBox-boxes img:nth-child(2) {
         order: 1;
@@ -78,6 +83,8 @@
         height: auto;
         width: 88vw;
     }
+
+  
 
     .SboxText {
         right: 50%;
@@ -161,6 +168,13 @@
         width: 15vw;
         height: auto;
         cursor: pointer;
+    }
+
+     .boxOpen{
+     width: 13vw;
+        height: auto;
+                cursor: pointer;
+
     }
 
     .boxContainer {

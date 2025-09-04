@@ -81,7 +81,7 @@ function Home() {
                     >
                         <img
                             src={completed[index] ? process.env.PUBLIC_URL + box.openImg : process.env.PUBLIC_URL + box.closeImg}
-                            className="boxClose"
+                            className={completed[index] ? "boxOpen" : "boxClose"}
                             alt={box.text}
                         />
                     </div>
