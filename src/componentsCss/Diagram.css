@@ -140,8 +140,8 @@
         width: 5vw;
         height: auto;
         position: absolute;
-        top: 23vh;
-        right: 39vw;
+              top: 21vh;
+        right: 25vw;
         rotate: 30deg;
         z-index: 1;
     }

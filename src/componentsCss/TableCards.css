@@ -1,66 +1,66 @@
 /* Mobile */
 @media screen and (max-width: 768px) {
-.text-table {
-    font-family: 'Heebo', sans-serif;
-    font-size: 4.7vw;
-    color: grey;
-    text-align: center;
-    width: 86vw;
-    padding: 5vw;
-    position: relative;
-    margin-top: 4vh;
-    min-height: 0;
-    direction: rtl;
-}
+    .text-table {
+        font-family: 'Heebo', sans-serif;
+        font-size: 4.7vw;
+        color: grey;
+        text-align: center;
+        width: 86vw;
+        padding: 5vw;
+        position: relative;
+        margin-top: 4vh;
+        min-height: 0;
+        direction: rtl;
+    }
 
-.cards-container {
-    display: grid; 
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 3vh 3vw;
-}
-
-
-.card-item-wrapper {
-    width: calc(50% - 3vw); 
-    display: flex;
-    justify-content: center; 
-}
-
-.card-item {
-    width: 127px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px dashed #60abcf;
-    background: none;
-    padding: 10px;
-    text-align: center;
-    border-radius: 2vh;
-    font-family: 'Karantina';
-    color: #60abcf;
-    font-size: 8vmin;
-}
+    .cards-container {
+        display: grid;
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 3vh 3vw;
+    }
 
 
+    .card-item-wrapper {
+        width: calc(50% - 3vw);
+        display: flex;
+        justify-content: center;
+    }
 
-.readDivCard {
-    background-color:  #60abcf; 
-    border: 2px solid #60abcf; 
-    color: white;
-}
+    .card-item {
+        width: 127px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px dashed #60abcf;
+        background: none;
+        padding: 10px;
+        text-align: center;
+        border-radius: 2vh;
+        font-family: 'Karantina';
+        color: #60abcf;
+        font-size: 8vmin;
+    }
 
-.table{
-    position: absolute;
-    right: 48%;
-    transform: translateX(50%);
-    margin-top: 3vh;
-    width: 68vw;
-}
+
+
+    .readDivCard {
+        background-color: #60abcf;
+        border: 2px solid #60abcf;
+        color: white;
+    }
+
+    .table {
+        position: absolute;
+        right: 48%;
+        transform: translateX(50%);
+        margin-top: 3vh;
+        width: 68vw;
+    }
 
 }
 
@@ -70,62 +70,66 @@
 
     .text-table {
         font-family: 'Assistant', sans-serif;
-    font-size: 2vw;
-    color: grey;
-    text-align: center;
-    width: 86vw;
-    position: relative;
-    margin-top: 4vh;
-    min-height: 0;
-    direction: rtl;
-}
+        font-size: 1.5vw;
+        color: grey;
+        text-align: center;
+        width: 86vw;
+        position: relative;
+        margin-top: 2vh;
+        min-height: 0;
+        direction: rtl;
+    }
 
-.cards-container {
-    display: grid; 
-    margin-top: 130px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 3vh 3vw;
-}
+    .cards-container {
+        display: grid;
+        margin-top: 6vh;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 3vh 3vw;
+        width: 80%;
+  position: absolute;
+        right: 50%;
+        transform: translateX(50%);
+    }
 
 
-.card-item-wrapper {
-    display: flex;
-    justify-content: center; 
-}
+    .card-item-wrapper {
+        display: flex;
+        justify-content: center;
+    }
 
-.card-item {
-  width: 189px;
+    .card-item {
+        width: 189px;
         height: 72px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px dashed #60abcf;
-    background: none;
-    padding: 10px;
-    text-align: center;
-    border-radius: 2vh;
-    font-family: 'Karantina';
-    color: #60abcf;
-    font-size: 2vw;
-    cursor: pointer;
-}
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px dashed #60abcf;
+        background: none;
+        padding: 10px;
+        text-align: center;
+        border-radius: 2vh;
+        font-family: 'Karantina';
+        color: #60abcf;
+        font-size: 2vw;
+        cursor: pointer;
+    }
 
 
 
-.readDivCard {
-    background-color:  #60abcf; 
-    border: 2px solid #60abcf; 
-    color: white;
-}
+    .readDivCard {
+        background-color: #60abcf;
+        border: 2px solid #60abcf;
+        color: white;
+    }
 
-.table{
-    position: absolute;
-    right: 50%;
-    transform: translateX(50%);
-    width: 30vw;
-    bottom: 0vh;
-}
+    .table {
+        position: absolute;
+        right: 50%;
+        transform: translateX(50%);
+        width:30vw;
+        bottom: 0vh;
+    }
 }

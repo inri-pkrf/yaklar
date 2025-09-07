@@ -18,13 +18,13 @@ function Cards({ data, title, updateCompleted, index, dataType }) {
     const [diagramCompleted, setDiagramCompleted] = useState(false);
     const [tableCompleted, setTableCompleted] = useState(false);
 
-const cardsRef = React.useRef(null);
+    const cardsRef = React.useRef(null);
 
-useEffect(() => {
-  if (cardsRef.current) {
-    cardsRef.current.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-}, [currentIndex]);
+    useEffect(() => {
+        if (cardsRef.current) {
+            cardsRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }, [currentIndex]);
 
     const currentItem = data[currentIndex];
     const isLastItem = currentIndex === data.length - 1;
@@ -120,13 +120,14 @@ useEffect(() => {
     };
 
     return (
-  <div className="Cards" ref={cardsRef}>
+        <div className="Cards" ref={cardsRef}>
             <div className="title1">{title}</div>
 
             <div className="text-continer-body">
-                <div className='title-div-body'></div>
-                <img src={currentItem.logoSrc} className="logos" alt="logos" />
-                <div className="title2">{currentItem.title}</div>
+                <div className='title-div-body'>
+                    <img src={currentItem.logoSrc} className="logos" alt="logos" />
+                    <div className="title2">{currentItem.title}</div>
+                </div>
 
                 {dataType === 'AbilitiesData' && currentItem.id === 4 ? (
                     <Diagram onComplete={handleDiagramComplete} />

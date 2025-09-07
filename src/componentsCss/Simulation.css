@@ -127,31 +127,31 @@
     }
 
     .touch-logo {
-        width: 100px;
-        top: 24vh;
-        left: 10vw;
+              width: 100px;
+        top: 22vh;
+        left: 24.5vw;
         position: relative;
         z-index: 2;
     }
 
     .title1-Simulation {
-        font-family: 'Karantina';
-        font-size: 64px;
+              font-family: 'Karantina';
+        font-size: 4vw;
         color: #175a85;
-        margin-top: 3vh;
         text-align: center;
         width: 600px;
-        top: 13vh;
+        top: 14vh;
+        left: 17vw;
         position: relative;
         z-index: 2;
     }
 
     .into-text-Simulation {
-              font-family: 'Heebo', sans-serif;
-        font-size: 24px;
-        color: grey;
+        font-family: 'Heebo', sans-serif;
+        font-size: 1.2vw;
+        color: #333;
         text-align: center;
-        width: 59%;
+        width: 65%;
         padding: 20px;
         position: relative;
         margin-top: 2vh;
@@ -178,9 +178,9 @@
 
     .form-label {
         font-family: 'Heebo', sans-serif;
-        font-size: 18px;
+        font-size: 1.2vw;
         color: #333;
-        width: 45%;
+        width: 83%;
         text-align: right;
     }
 

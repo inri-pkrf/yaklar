@@ -185,13 +185,13 @@
     } */
 
     .title-intro {
-        position: absolute;
+     position: absolute;
         right: 50%;
         transform: translateX(50%);
         font-family: 'Karantina';
-        font-size: 5.5vw;
+        font-size: 4.5vw;
         color: #175a85;
-        margin-top: 0vh;
+        margin-top: 4vh;
         width: 101%;
         text-align: center;
         z-index: 2;
@@ -201,7 +201,7 @@
         position: absolute;
         right: 50%;
         transform: translateX(50%);
-        margin-top: 23vh;
+        margin-top: 28vh;
         width: 80vw;
         text-align: center;
         height: 55vh;
@@ -210,7 +210,7 @@
 
     .text-intro {
         font-family: 'Assistant', sans-serif;
-        font-size: 2vw;
+        font-size: 1.5vw;
         color: black;
     }
 
@@ -289,7 +289,7 @@
         padding: 2vh;
         text-align: center;
         font-size: 6vmin;
-        border-radius: 7vw;
+        border-radius: 3vw;
         background-color: #21b3e1;
         cursor: pointer;
     }
