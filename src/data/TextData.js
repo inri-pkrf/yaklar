@@ -7,8 +7,8 @@ const TextData = [
                 ' אעביר דרישה לנפ"ה'
             ],
         correctAnswer: 0,
-        feedbackCorrect: "משוב- ענה נכון",
-        feedbackInCorrect: "משוב- אם ענה לא נכון",
+        feedbackCorrect: "יפה מאוד",
+        feedbackInCorrect: "לא נכון",
     },
     {
         content: 'הגעת לשלב בו כלל המתנדבים בפעילות. מה תעשה?',
@@ -18,8 +18,8 @@ const TextData = [
                 'אעלה בקשה במערכת המרס"ל'
             ],
         correctAnswer: 0,
-        feedbackCorrect: "משוב- ענה נכון",
-        feedbackInCorrect: "משוב- ענה לא נכון",
+        feedbackCorrect: "יפה מאוד",
+        feedbackInCorrect: "לא נכון",
     },
     {
         content: 'לאחר פתיחת חפ"ק ההתנדבות כלל המתנדבים ברשות מוצו ואין עוד מתנדבים. מה תעשה?',
@@ -29,8 +29,8 @@ const TextData = [
                 'אעלה בקשה במערכת המרס"ל'
             ],
         correctAnswer: 0,
-        feedbackCorrect: "משוב- ענה נכון",
-        feedbackInCorrect: "משוב- ענה לא נכון",
+        feedbackCorrect: "יפה מאוד",
+        feedbackInCorrect: "לא נכון",
     },
     {
         content: 'כלל התקציבים ברשות מוצו ועדיין יש צורך בכוח אדם ואמצעים. מה תעשה?',
@@ -40,19 +40,19 @@ const TextData = [
                 'אעלה בקשה במערכת המרס"ל'
             ],
         correctAnswer: 0,
-        feedbackCorrect: "משוב- ענה נכון",
-        feedbackInCorrect: "משוב- ענה לא נכון",
+        feedbackCorrect: "יפה מאוד",
+        feedbackInCorrect: "לא נכון",
     },
     {
         content: 'כלל היקלרים השכנים סייעו אך עדיין יש צורך בכוח אדם ואמצעים. מה תעשה?',
         answers:
             [
-                'אעלה בקשה במערכת המרס"ל',
-                'חסר'
+                'חסר',
+                'אעלה בקשה במערכת המרס"ל'
             ],
         correctAnswer: 0,
-        feedbackCorrect: "משוב- ענה נכון",
-        feedbackInCorrect: "משוב- ענה לא נכון",
+        feedbackCorrect: "יפה מאוד",
+        feedbackInCorrect: "לא נכון",
     }
 ]
 

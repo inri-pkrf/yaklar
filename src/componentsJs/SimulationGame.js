@@ -182,15 +182,32 @@ function SimulationGame({ municipality, name }) {
                     </div>
                 )}
                 {isSimulationCompleted && (
-                    <div
-                        className='end-chat-btn'
-                        onClick={() => {
-                            // שמירה שהסימולציה הושלמה
-                            sessionStorage.setItem('simulationCompleted', 'true');
-                            navigate('/home');
-                        }}
-                    >
-                        חזרה ללומדה
+                    <div className="end-buttons">
+                        <div
+                            className='end-chat-btn'
+                            onClick={() => {
+                                sessionStorage.setItem('simulationCompleted', 'true');
+                                navigate('/home');
+                            }}
+                        >
+                            חזרה ללומדה
+                        </div>
+
+                        <div
+                            className='restart-btn'
+                            onClick={() => {
+                                // איפוס מצב הסימולציה
+                                sessionStorage.removeItem("simulationState");
+                                sessionStorage.removeItem("simChatMessages");
+                                sessionStorage.removeItem("simChatIndex");
+                                sessionStorage.removeItem("simCompleted");
+                                sessionStorage.removeItem("simulationCompleted");
+
+                                navigate(0); // טוען מחדש את הדף → יחזור למסך ההתחלה של Simulation.jsx
+                            }}
+                        >
+                            התחלה מחדש
+                        </div>
                     </div>
                 )}
 
