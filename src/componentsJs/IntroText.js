@@ -53,7 +53,7 @@ function IntroText() {
                 </div>
 
 
-                <div className='btn-start' onClick={() => navigate('/Home')}>קדימה, מתחילים!</div>
+                <div className='btn-start' onClick={() => navigate('/home')}>קדימה, מתחילים!</div>
 
 
             </div>
