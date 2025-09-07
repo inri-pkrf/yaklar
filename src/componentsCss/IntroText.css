@@ -64,12 +64,16 @@
         font-family: 'Assistant', sans-serif;
         font-size: 5vw;
         color: black;
+        position: relative;
+        top: 7vh;
     }
 
     .about-div {
         position: absolute;
         right: 50%;
         transform: translateX(50%);
+         position: relative;
+        top: 10vh;
     }
 
     .homePageLogos {
@@ -289,7 +293,7 @@
         padding: 2vh;
         text-align: center;
         font-size: 6vmin;
-        border-radius: 3vw;
+        border-radius: 5vw;
         background-color: #21b3e1;
         cursor: pointer;
     }
