@@ -18,6 +18,14 @@ function Cards({ data, title, updateCompleted, index, dataType }) {
     const [diagramCompleted, setDiagramCompleted] = useState(false);
     const [tableCompleted, setTableCompleted] = useState(false);
 
+const cardsRef = React.useRef(null);
+
+useEffect(() => {
+  if (cardsRef.current) {
+    cardsRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}, [currentIndex]);
+
     const currentItem = data[currentIndex];
     const isLastItem = currentIndex === data.length - 1;
     const isCorrectAnswer = userAnswers[currentIndex] === currentItem.correctAnswer;
@@ -112,7 +120,7 @@ function Cards({ data, title, updateCompleted, index, dataType }) {
     };
 
     return (
-        <div className="Cards">
+  <div className="Cards" ref={cardsRef}>
             <div className="title1">{title}</div>
 
             <div className="text-continer-body">

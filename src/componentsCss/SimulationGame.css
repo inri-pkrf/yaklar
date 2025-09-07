@@ -62,12 +62,19 @@
 
 /* ------------------------------------------------------------ */
 
+/* קונטיינר ההודעות */
 .texing-div {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    /* ריווח בין ההודעות */
     width: 100%;
     height: 46vh;
+    /* או אחוז מהמסך */
     position: absolute;
     bottom: 39vh;
     overflow-y: auto;
+    /* גלילה אנכית */
 }
 
 /* ------------------------------------------------------------- */
@@ -83,28 +90,40 @@
 
 
 .answers-divs {
-    height: 11vh;
-    width: 34vw;
+    min-height: 14vh;
+    /* גובה מינימום */
+    max-height: 20vh;
+    /* גובה מקסימום אם רוצים */
+    width: 40vw;
     background-color: #eeeeee;
     border-radius: 7vw;
     position: absolute;
-    bottom: 7vh;
+    bottom: 8vh;
     text-align: center;
     font-family: 'Heebo', sans-serif;
     color: grey;
     font-size: 4.5vw;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
-    padding-left: 4vw;
-    padding-right: 4vw;
+    padding: 1.5vh 4vw;
+    /* פחות פדינג כדי לא "לבלוע" את הטקסט */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* ממרכז את הטקסט אנכית */
+    word-wrap: break-word;
+    /* טקסט נשבר לשורות */
+    word-break: break-word;
+    overflow-y: auto;
+    /* גלילה אם הטקסט גדול */
+    cursor: pointer;
+    direction: rtl;
 }
 
 #answer1-div {
-    left: 53vw;
+    left: 51vw;
 }
 
 #answer2-div {
-    left: 6vw;
+    left: 1vw;
 }
 
 .btn-to-home {
@@ -148,44 +167,41 @@
 
 /* ------------------------------------ */
 
-.side1-text {
-    height: 10vh;
-    width: 34vw;
-    background-color: #cfe2f3;
-    border-radius: 7vw;
-    position: relative;
-    top: 2vh;
-    left: 53vw;
-    text-align: center;
+.side1-text,
+.side2-text {
+    display: inline-block;
+    max-width: 48%;
+    padding: 3vh 4.5vw;
+    margin: 1vh 0;
+    border-radius: 20px;
     font-family: 'Heebo', sans-serif;
-    color: #2c2b2b;
     font-size: 4vw;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
-    padding-left: 4vw;
-    padding-right: 4vw;
+    line-height: 1.3;
+    color: #2c2b2b;
+    word-wrap: break-word;
+    word-break: break-word;
+    height: auto;
     direction: rtl;
-    margin-bottom: 2vh;
 }
 
+/* צד ימין – הבוט */
+.side1-text {
+    background-color: #cfe2f3;
+    align-self: flex-end;
+    margin-left: auto;
+    margin-right: 2vw;
+    /* ריווח מהקצה */
+    text-align: right;
+}
+
+/* צד שמאל – המשתמש */
 .side2-text {
-    height: 10vh;
-    width: 34vw;
     background-color: #9fc5e8;
-    border-radius: 7vw;
-    position: relative;
-    top: 2vh;
-    left: 4vw;
-    text-align: center;
-    font-family: 'Heebo', sans-serif;
-    color: #2c2b2b;
-    font-size: 4vw;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
-    padding-left: 4vw;
-    padding-right: 4vw;
-    direction: rtl;
-    margin-bottom: 2vh;
+    align-self: flex-start;
+    margin-left: 2vw;
+    /* ריווח מהקצה */
+    margin-right: auto;
+    text-align: right;
 }
 
 .is-clicked {
@@ -236,13 +252,13 @@
     .game-header {
         width: 100%;
         position: absolute;
-        background-color: #f7b37c;
+        background-color: #f3c9a6;
         height: 12vh;
         border-bottom: 1px solid #000;
     }
 
     .title-game {
-              direction: rtl;
+        direction: rtl;
         font-family: 'Heebo', sans-serif;
         font-size: 32px;
         position: absolute;
@@ -251,12 +267,11 @@
     }
 
     .circle-img {
-             width: 80px;
+        width: 80px;
         height: 80px;
         border-radius: 50%;
         border: 1px solid #000;
-        display: flex
-;
+        display: flex;
         justify-content: center;
         align-items: center;
         overflow: hidden;
@@ -278,30 +293,37 @@
     }
 
     #logo-phone {
-          left: 5vw;
+        left: 5vw;
         width: 40px;
         top: 5vh;
     }
 
     #logo-video {
-             left: 11vw;
+        left: 10vw;
         width: 60px;
     }
 
     .texing-div {
+        display: flex;
+        flex-direction: column;
+        gap: 0vh;
+        /* ריווח בין ההודעות */
         width: 100%;
         height: 50vh;
         position: absolute;
         bottom: 35vh;
         overflow-y: auto;
+        /* גלילה אם יש הרבה הודעות */
+        padding: 1vh;
+        box-sizing: border-box;
     }
 
     .keybord-div {
         width: 100%;
         position: absolute;
         bottom: 0;
-        background-color: #f7b37c;
-        height: 25vh;
+        background-color: #f3c9a6;
+        height: 27vh;
         border-top: 1px solid #000;
     }
 
@@ -315,7 +337,7 @@
         text-align: center;
         font-family: 'Heebo', sans-serif;
         color: grey;
-        font-size: 2.5vmin;
+        font-size: 1.5rem;
         padding-top: 3vh;
         padding-bottom: 3vh;
         padding-left: 2vw;
@@ -370,38 +392,36 @@
         transform: rotate(180deg);
     }
 
+    /* הודעה מצד הבוט (ימין) */
     .side1-text {
-        height: 8vh;
-        width: 300px;
+        max-width: 48%;
         background-color: #cfe2f3;
         border-radius: 20px;
-        position: relative;
-        top: 2vh;
-        left: 78vw;
-        text-align: center;
-        font-family: 'Heebo', sans-serif;
-        color: #2c2b2b;
+        align-self: flex-end;
+        margin-left: auto;
+        margin-right: 0vw;
+        padding: 4vh 2vw;
         font-size: 20px;
-        padding: 3vh 2vw;
-        direction: rtl;
-        margin-bottom: 2vh;
+        line-height: 1.3;
+        font-size: 1.4rem;
+        word-wrap: break-word;
+        word-break: break-word;
     }
 
+    /* הודעה מצד המשתמש (שמאל) */
     .side2-text {
-            height: 8vh;
-        width: 300px;
+        max-width: 48%;
         background-color: #9fc5e8;
         border-radius: 20px;
-        position: relative;
-        top: 2vh;
-        left: 5vw;
-        text-align: center;
-        font-family: 'Heebo', sans-serif;
-        color: #2c2b2b;
+        align-self: flex-start;
+        margin-left: 0vw;
+        margin-right: auto;
+        padding: 2vh 2vw;
         font-size: 20px;
-        padding: 3vh 2vw;
-        direction: rtl;
-        margin-bottom: 2vh;
+        line-height: 1.3;
+        font-size: 1.4rem;
+        word-wrap: break-word;
+        word-break: break-word;
     }
 
     .is-clicked {

@@ -37,7 +37,7 @@
 
 /* Desktop */
 @media screen and (min-width: 1025px) {
-     .header {
+    .header {
         position: fixed;
         top: 0;
         width: 100%;
@@ -47,14 +47,16 @@
     }
 
     .collegeLogoText {
-        height: 10vmin;
+        height: 8vmin;
         position: absolute;
         top: 10px;
         right: 15px;
+        cursor: pointer;
+        z-index: 10000;
     }
 
     .homeBtn {
-            position: absolute;
+        position: absolute;
         top: 22px;
         left: 49px;
         width: 4vw;
@@ -63,7 +65,7 @@
 
     .orangeTriangle {
         position: fixed;
-        top: 0;
+        top: 11%;
         left: 0;
         width: 13vw;
         height: auto;

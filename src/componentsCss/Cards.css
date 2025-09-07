@@ -201,9 +201,9 @@
 
     .title1 {
         font-family: 'Karantina';
-        font-size: 5.8vw;
+        font-size: 4.8vw;
         color: #175a85;
-        margin-top: 11vh;
+        margin-top: 13vh;
         text-align: center;
         width: 60vw;
     }
@@ -224,7 +224,7 @@
     }
 
     .text-div-body {
-     font-family: 'Assistant', sans-serif;
+        font-family: 'Assistant', sans-serif;
         font-size: 1.5vw;
         color: #3b3a3a;
         text-align: right;
@@ -371,10 +371,8 @@
     }
 
     .video-container {
-        text-align: center;
-        margin: 20px 0;
-        position: relative;
-        bottom: 6vh;
+        position: absolute;
+        bottom: 17vh;
     }
 
     .video-player {
