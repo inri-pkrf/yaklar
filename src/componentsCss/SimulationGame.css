@@ -67,14 +67,11 @@
     display: flex;
     flex-direction: column;
     gap: 1vh;
-    /* ריווח בין ההודעות */
     width: 100%;
-    height: 46vh;
-    /* או אחוז מהמסך */
+    height: 46%;
     position: absolute;
-    bottom: 39vh;
+    top: 15vh;
     overflow-y: auto;
-    /* גלילה אנכית */
 }
 
 /* ------------------------------------------------------------- */
@@ -480,26 +477,26 @@
     } */
 
     .end-buttons {
-    display: flex;
-    gap: 8vw;
-    justify-content: center;
-    margin-top: 6vh;
-}
+        display: flex;
+        gap: 8vw;
+        justify-content: center;
+        margin-top: 6vh;
+    }
 
-.end-chat-btn,
-.restart-btn {
-    background-color: #d6c5b6;
-    padding: 4vh 4vw;
-    border-radius: 40px;
-    cursor: pointer;
-    font-size: 2.2rem;
-    font-family: 'Heebo', sans-serif;
-    cursor: pointer;
-}
+    .end-chat-btn,
+    .restart-btn {
+        background-color: #d6c5b6;
+        padding: 4vh 4vw;
+        border-radius: 40px;
+        cursor: pointer;
+        font-size: 2.2rem;
+        font-family: 'Heebo', sans-serif;
+        cursor: pointer;
+    }
 
-.restart-btn {
-    background-color: #f28b82;
-    /* צבע שונה כדי להדגיש */
-}
+    .restart-btn {
+        background-color: #f28b82;
+        /* צבע שונה כדי להדגיש */
+    }
 
 }
