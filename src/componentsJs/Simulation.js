@@ -26,22 +26,22 @@ function Simulation() {
         "פתח תקווה"
     ];
 
-const handleStart = () => {
-    if (!name && !municipality) {
-        setErrorMessage("עליך למלא את שני השדות על מנת להמשיך");
-    } else if (!name) {
-        setErrorMessage("עליך למלא את שמך על מנת להמשיך");
-    } else if (!municipality) {
-        setErrorMessage("עליך לבחור את הרשות עליה את/ה משתייכ/ת על מנת להמשיך");
-    } else {
-        setErrorMessage("");
+    const handleStart = () => {
+        if (!name && !municipality) {
+            setErrorMessage("עליך למלא את שני השדות על מנת להמשיך");
+        } else if (!name) {
+            setErrorMessage("עליך למלא את שמך על מנת להמשיך");
+        } else if (!municipality) {
+            setErrorMessage("עליך למלא את הרשות עליה את/ה משתייכ/ת על מנת להמשיך");
+        } else {
+            setErrorMessage("");
 
-        // שמירת מצב ב-sessionStorage כדי לזכור שהסימולציה התחילה
-        sessionStorage.setItem('simulationState', JSON.stringify({ name, municipality }));
+            // שמירת מצב ב-sessionStorage כדי לזכור שהסימולציה התחילה
+            sessionStorage.setItem('simulationState', JSON.stringify({ name, municipality }));
 
-        setShowSimulationGame(true); // מעבר ל-SimulationGame
-    }
-};
+            setShowSimulationGame(true); // מעבר ל-SimulationGame
+        }
+    };
 
 
     if (showSimulationGame) {
@@ -79,7 +79,7 @@ const handleStart = () => {
 
                             <div className="form-row">
                                 <label className="form-label">מה הרשות שלך?</label>
-                                <select
+                                {/* <select
                                     className="form-select"
                                     value={municipality}
                                     onChange={(e) => setMunicipality(e.target.value)}
@@ -88,7 +88,14 @@ const handleStart = () => {
                                     {municipalities.map((city, index) => (
                                         <option key={index} value={city}>{city}</option>
                                     ))}
-                                </select>
+                                </select> */}
+                                    <input
+                                        type="text"
+                                        className="form-input"
+                                        value={municipality}
+                                        onChange={(e) => setMunicipality(e.target.value)}
+                                        placeholder="הכנס את הרשות כאן"
+                                    />
                             </div>
 
                             {errorMessage && <div className="error-message">{errorMessage}</div>}
