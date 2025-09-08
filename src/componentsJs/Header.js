@@ -7,17 +7,18 @@ import Navbar from './Navbar';
 function Header() {
     const navigate = useNavigate();
     const location = useLocation();
-    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+    const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 768); // שימוש ב־lazy init
 
     useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 768);
         };
-        window.addEventListener('resize', handleResize);
 
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
+        // בדיקה מיידית גם כשעושים ריפרש
+        handleResize();
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
 
     return (
@@ -30,26 +31,21 @@ function Header() {
             />
 
             {/* המשולש */}
-          {(!isMobile && location.pathname !== '/IntroText') || isMobile ? (
-    <img
-        src={process.env.PUBLIC_URL + '/assests/imgs/orangeTriangle.png'}
-        alt="orangeTriangle"
-        className="orangeTriangle"
-    />
-) : null}
+            {(!isMobile && location.pathname !== '/IntroText') || isMobile ? (
+                <img
+                    src={process.env.PUBLIC_URL + '/assests/imgs/orangeTriangle.png'}
+                    alt="orangeTriangle"
+                    className="orangeTriangle"
+                />
+            ) : null}
 
             {/* Navbar / Hamburger */}
             {location.pathname !== '/IntroText' && (
-                isMobile ? (
-                    <Hamburger />
-                ) : (
-                    <div className="div-navbar">
-                        <Navbar />
-                    </div>
-                )
+                isMobile ? <Hamburger /> : <div className="div-navbar"><Navbar /></div>
             )}
         </header>
     );
 }
+
 
 export default Header;
