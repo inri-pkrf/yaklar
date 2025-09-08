@@ -43,7 +43,7 @@ function IntroText() {
                         <div className='mashov-home'>
                             <div className='mashovText'>
                                 <br /> יש הערות על הממשק? יש מחמאות? מלאו את השאלון וצרו איתנו קשר
-                                <br /> <a id='linkHome' href="https://docs.google.com/forms/d/e/1FAIpQLSeAunPlSFfKmqyZhnCQkf8jsxTPsLjr8-vKES_V3UDqqDSFoA/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer">
+                                <br /> <a id='linkHome' href="https://forms.gle/EZPKDWebUQoBL93M9" target="_blank" rel="noopener noreferrer">
                                     בקישור הבא
                                 </a>
                             </div>

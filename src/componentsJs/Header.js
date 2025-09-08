@@ -30,13 +30,11 @@ function Header() {
             />
 
             {/* המשולש */}
-            {(!isMobile && location.pathname === '/home') || isMobile ? (
                 <img
                     src={process.env.PUBLIC_URL + '/assests/imgs/orangeTriangle.png'}
                     alt="orangeTriangle"
                     className="orangeTriangle"
                 />
-            ) : null}
 
             {/* Navbar / Hamburger */}
             {location.pathname !== '/IntroText' && (

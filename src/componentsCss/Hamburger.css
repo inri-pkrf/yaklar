@@ -111,11 +111,12 @@
 }
 
 .whiteLogoHam {
-    height: 16vh;
+    height: 13vh;
     width: auto;
     position: absolute;
     transform: translateX(50%);
     right: 50%;
+    top: 5vh;
 }
 
 .mashov-menu{

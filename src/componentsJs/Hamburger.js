@@ -119,7 +119,7 @@ const Hamburger = () => {
             <br />
             <a
               id="linkMenu"
-              href="https://docs.google.com/forms/d/e/1FAIpQLSeAunPlSFfKmqyZhnCQkf8jsxTPsLjr8-vKES_V3UDqqDSFoA/viewform?usp=sf_link"
+              href="https://forms.gle/EZPKDWebUQoBL93M9"
               target="_blank"
               rel="noopener noreferrer"
             >

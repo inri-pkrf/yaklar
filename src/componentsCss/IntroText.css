@@ -120,7 +120,7 @@
         font-size: 4vw;
         color: #50565c;
         text-align: center;
-        margin-top: 2vh;
+        margin-top: 25vh;
         width: 67vw;
     }
 
@@ -139,7 +139,7 @@
         position: absolute;
         right: 50%;
         transform: translateX(50%);
-        margin-top: 100vh;
+        margin-top: 83vh;
         width: 59vw;
         height: 6vh;
         padding: 2vh;

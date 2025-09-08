@@ -1,6 +1,6 @@
 /* Mobile */
 @media screen and (max-width: 768px) {
-.popup-overlay {
+  .popup-overlay {
     background: #000000b3;
     height: 100vh;
     left: 0;
@@ -9,9 +9,9 @@
     width: 100vw;
     z-index: 2000;
   }
-  
+
   .popup-content {
-    background:#e2d4c8;
+    background: #e2d4c8;
     border-radius: 12vw;
     height: 74vh;
     overflow-y: auto;
@@ -22,7 +22,7 @@
     width: 80vw;
     overflow: hidden;
   }
-  
+
   .XBtn {
     position: absolute;
     top: 5vw;
@@ -31,24 +31,24 @@
     border: none;
     width: 8vw;
   }
-  
+
   .popup-close-button {
     border: none;
     background-color: transparent;
   }
-  
+
   .popup-title {
     font-family: 'Karantina';
     font-weight: normal;
     color: black;
     font-size: 15vw;
-    margin-bottom: 7vw;
-    margin-top: 1vw;
+    margin-bottom: 3vw;
+    margin-top: 8vw;
     margin-left: 4vw;
     margin-right: 4vw;
     text-align: center;
   }
-  
+
   .popup-body {
     font-size: 4.5vw;
     direction: ltr;
@@ -59,10 +59,10 @@
     margin-bottom: 1vh;
     overflow: auto;
     width: 74.5vw;
-    color: #5d5b5b;
+    color: #4f4e4e;
     line-height: 4vh;
   }
-  
+
   .popup-body-text {
     direction: rtl;
   }
@@ -82,7 +82,7 @@
   }
 
   .popup-content {
-    background:#e2d4c8;
+    background: #e2d4c8;
     border-radius: 12vw;
     height: 74vh;
     overflow-y: auto;
@@ -132,17 +132,17 @@
   }
 
   .popup-body {
-         font-size: 1.5vw;
-        direction: ltr;
-        margin-right: 10.5vh;
-        text-align: right;
-        margin-left: 0.5vh;
-        height: 40vh;
-        margin-bottom: 1vh;
-        overflow: auto;
-        width: 53.5vw;
-        font-family: 'Assistant';
-        line-height: 5vh;
+    font-size: 1.5vw;
+    direction: ltr;
+    margin-right: 10.5vh;
+    text-align: right;
+    margin-left: 0.5vh;
+    height: 40vh;
+    margin-bottom: 1vh;
+    overflow: auto;
+    width: 53.5vw;
+    font-family: 'Assistant';
+    line-height: 5vh;
   }
 
   .popup-body-text {

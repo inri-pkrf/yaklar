@@ -13,7 +13,7 @@
     }
 
     .title {
-       position: absolute;
+        position: absolute;
         right: 50%;
         transform: translateX(50%);
         font-family: 'Karantina';
@@ -51,7 +51,7 @@
 
     .boxContainer {
         margin-bottom: 6vh;
-    margin-left: 2vw;
+        margin-left: 2vw;
     }
 
     .boxClose {
@@ -59,9 +59,10 @@
         height: auto;
     }
 
-      .boxOpen{
-     width: 36vw;
+    .boxOpen {
+        width: 40vw;
         height: auto;
+        margin-top: -2vh;
     }
 
     .flexBox-boxes img:nth-child(1),
@@ -79,25 +80,10 @@
         position: absolute;
         right: 50%;
         transform: translateX(50%);
-        margin-top: 113vh;
+        margin-top: 118vh;
         height: auto;
-        width: 88vw;
+        width: 80vw;
     }
-
-  
-
-    .SboxText {
-        right: 50%;
-        transform: translateX(50%);
-        margin-top: 125.3vh;
-        margin-right: 2vh;
-        font-family: 'Karantina';
-        position: absolute;
-        color: white;
-        font-size: 9vw;
-        text-align: center;
-    }
-
 
     .marginBottom {
         position: absolute;
@@ -165,15 +151,16 @@
     }
 
     .boxClose {
-        width: 15vw;
+        width: 14vw;
         height: auto;
         cursor: pointer;
     }
 
-     .boxOpen{
-     width: 13vw;
+    .boxOpen {
+        width: 13vw;
         height: auto;
-                cursor: pointer;
+        cursor: pointer;
+        margin-top: -2vh;
 
     }
 
@@ -185,22 +172,9 @@
         position: absolute;
         right: 50%;
         transform: translateX(50%);
-        margin-top: 70vh;
+        margin-top: 76vh;
         height: auto;
-        width: 28vw;
-        cursor: pointer;
-    }
-
-    .SboxText {
-        right: 50%;
-        transform: translateX(50%);
-        margin-top: 82vh;
-        margin-right: 2vh;
-        font-family: 'Karantina';
-        position: absolute;
-        color: white;
-        font-size: 3vw;
-        text-align: center;
+        width: 25vw;
         cursor: pointer;
     }
 

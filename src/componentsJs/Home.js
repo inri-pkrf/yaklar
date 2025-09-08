@@ -112,9 +112,7 @@ function Home() {
                     className="SboxClose"
                     alt="Sbox"
                 />
-                <span className="SboxText">
-                    סימולציה
-                </span>
+              
             </div>
 
             <div className='marginBottom'></div>

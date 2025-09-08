@@ -45,9 +45,9 @@
         z-index: 100;
         background-color: #f2e5dd;
     }
-
     .collegeLogoText {
-        height: 8vmin;
+        max-width: 12vw;
+        height: auto;
         position: absolute;
         top: 10px;
         right: 15px;

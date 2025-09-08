@@ -67,7 +67,7 @@ const handleStart = () => {
 
                         <div className='form-Simulation'>
                             <div className="form-row">
-                                <label className="form-label">כתוב את שמך:</label>
+                                <label className="form-label">  מה שמך?</label>
                                 <input
                                     type="text"
                                     className="form-input"
@@ -78,7 +78,7 @@ const handleStart = () => {
                             </div>
 
                             <div className="form-row">
-                                <label className="form-label">הכנס/י את שם הרשות עליה את/ה משוייכ/ת:</label>
+                                <label className="form-label">מה הרשות שלך?</label>
                                 <select
                                     className="form-select"
                                     value={municipality}
