@@ -66,9 +66,9 @@
 .texing-div {
     display: flex;
     flex-direction: column;
-    gap: 1vh;
+    gap: 0vh;
     width: 100%;
-    height: 46%;
+    height: 45%;
     position: absolute;
     top: 15vh;
     overflow-y: auto;
@@ -214,6 +214,7 @@
     position: relative;
     top: 10vh;
     left: 4vw;
+    direction: rtl;
 }
 
 /* .end-chat-btn {
@@ -238,24 +239,57 @@
 
 .end-buttons {
     display: flex;
-    gap: 8vw;
+    gap: 2vw;
     justify-content: center;
-    margin-top: 6vh;
+    margin-top: 9vh;
+    flex-wrap: wrap;
 }
 
 .end-chat-btn,
 .restart-btn {
-    background-color: #d6c5b6;
-    padding: 4vh 4vw;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
     font-family: 'Heebo', sans-serif;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
+/* כפתור סיום */
+.end-chat-btn {
+    background: linear-gradient(135deg, #cfe2f3, #b7d4ec);
+    color: #083d77;
+}
+
+.end-chat-btn:hover {
+    background: linear-gradient(135deg, #b7d4ec, #cfe2f3);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.end-chat-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* כפתור ריסט */
 .restart-btn {
-    background-color: #f28b82;
-    /* צבע שונה כדי להדגיש */
+    background: linear-gradient(135deg, #9fc5e8, #6fa8dc);
+    color: white;
+}
+
+.restart-btn:hover {
+    background: linear-gradient(135deg, #6fa8dc, #9fc5e8);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.restart-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -455,6 +489,7 @@
         color: #2c2b2b;
         font-size: 20px;
         position: relative;
+        direction: rtl;
     }
 
     /* .end-chat-btn {
@@ -476,27 +511,59 @@
         cursor: pointer;
     } */
 
-    .end-buttons {
-        display: flex;
-        gap: 8vw;
-        justify-content: center;
-        margin-top: 6vh;
-    }
+ .end-buttons {
+    display: flex;
+    gap: 2vw;
+    justify-content: center;
+    margin-top: 9vh;
+    flex-wrap: wrap;
+}
 
-    .end-chat-btn,
-    .restart-btn {
-        background-color: #d6c5b6;
-        padding: 4vh 4vw;
-        border-radius: 40px;
-        cursor: pointer;
-        font-size: 2.2rem;
-        font-family: 'Heebo', sans-serif;
-        cursor: pointer;
-    }
+.end-chat-btn,
+.restart-btn {
+    padding: 2rem 4rem;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
 
-    .restart-btn {
-        background-color: #f28b82;
-        /* צבע שונה כדי להדגיש */
-    }
+/* כפתור סיום */
+.end-chat-btn {
+    background: linear-gradient(135deg, #cfe2f3, #b7d4ec);
+    color: #083d77;
+}
+
+.end-chat-btn:hover {
+    background: linear-gradient(135deg, #b7d4ec, #cfe2f3);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.end-chat-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* כפתור ריסט */
+.restart-btn {
+    background: linear-gradient(135deg, #9fc5e8, #6fa8dc);
+    color: white;
+}
+
+.restart-btn:hover {
+    background: linear-gradient(135deg, #6fa8dc, #9fc5e8);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.restart-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
 
 }

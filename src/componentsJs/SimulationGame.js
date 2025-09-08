@@ -158,7 +158,11 @@ function SimulationGame({ municipality, name }) {
 
             <div className='keybord-div'>
                 {messageSent ? (
-                    <div className="message-sent">הודעה נשלחה</div>
+                    <div className="message-sent">
+                        קיבלתם הודעה חדשה,
+                        <br />
+                        קראו אותה
+                    </div>
                 ) : (
                     showAnswers && !isSimulationCompleted && (
                         <div className='answers-continer'>

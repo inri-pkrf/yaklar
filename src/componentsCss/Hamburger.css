@@ -156,4 +156,20 @@
   li[style*="not-allowed"] {
     cursor: not-allowed;
   }
-  
+
+.menu-item.active {
+  color: #3bb2e2;
+  font-weight: bold;
+  position: relative;
+}
+
+.menu-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  width: 60%;
+  height: 2px;
+  border-radius: 50px;
+}
+

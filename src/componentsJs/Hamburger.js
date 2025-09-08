@@ -16,7 +16,9 @@ const Hamburger = () => {
   const [simulationCompleted, setSimulationCompleted] = useState(false);
 
   // בודק אם כל הקופסאות הושלמו
-  const simulationUnlocked = completed.every(c => c === true) || sessionStorage.getItem('simulationCompleted') === 'true';
+  const simulationUnlocked =
+    completed.every((c) => c === true) ||
+    sessionStorage.getItem('simulationCompleted') === 'true';
 
   const subjects = [
     { name: 'עמוד הבית', path: '/home' },
@@ -35,21 +37,22 @@ const Hamburger = () => {
     }
   }, [location.pathname, visitedPages]);
 
-  // במקום useEffect([]) פעם אחת
-useEffect(() => {
-  if (isOpen) {
-    const stored = JSON.parse(sessionStorage.getItem('progressData')) || {};
-    const completedArray = [
-      stored[0]?.diagramCompleted || false,
-      stored[1]?.diagramCompleted || false,
-      stored[2]?.diagramCompleted || false,
-      stored[3]?.diagramCompleted || false,
-    ];
-    setCompleted(completedArray);
+  useEffect(() => {
+    if (isOpen) {
+      const stored = JSON.parse(sessionStorage.getItem('progressData')) || {};
+      const completedArray = [
+        stored[0]?.diagramCompleted || false,
+        stored[1]?.diagramCompleted || false,
+        stored[2]?.diagramCompleted || false,
+        stored[3]?.diagramCompleted || false,
+      ];
+      setCompleted(completedArray);
 
-    setSimulationCompleted(sessionStorage.getItem('simulationCompleted') === 'true');
-  }
-}, [isOpen]);
+      setSimulationCompleted(
+        sessionStorage.getItem('simulationCompleted') === 'true'
+      );
+    }
+  }, [isOpen]);
 
   const handleClick = () => {
     setIsOpen(!isOpen);
@@ -60,13 +63,19 @@ useEffect(() => {
 
     if (path === '/simulation') {
       const savedState = JSON.parse(sessionStorage.getItem('simulationState'));
-      if (!simulationUnlocked && !(savedState && savedState.name && savedState.municipality)) {
+      if (
+        !simulationUnlocked &&
+        !(savedState && savedState.name && savedState.municipality)
+      ) {
         return; // 🚫 נעול – לא עושים navigate
       }
     }
 
     navigate(path);
   };
+
+  // ✅ פונקציה לסימון עמוד נוכחי
+  const isActive = (path) => location.pathname === path;
 
   return (
     <div>
@@ -92,7 +101,8 @@ useEffect(() => {
               <React.Fragment key={index}>
                 <li
                   onClick={() => handleMenuClick(subject.path)}
-                  className={`menu-item ${visitedPages.includes(subject.path) ? 'active' : ''} 
+                  className={`menu-item 
+                    ${isActive(subject.path) ? 'active' : ''} 
                     ${locked ? 'fade' : ''}`}
                   style={{ cursor: locked ? 'not-allowed' : 'pointer' }}
                 >

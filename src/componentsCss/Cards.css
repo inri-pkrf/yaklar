@@ -141,12 +141,12 @@
 
     .answer-item {
         width: 70vw;
-        height: 5vh;
+        /* height: 4vh; */
         margin-bottom: 2vh;
-        padding-top: 1vh;
-        padding-bottom: 3vh;
-        padding-left: 1vh;
-        padding-right: 1vh;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        padding-left: 3vh;
+        padding-right: 3vh;
         font-family: 'Heebo', sans-serif;
         text-align: center;
         color: rgb(66, 65, 65);
