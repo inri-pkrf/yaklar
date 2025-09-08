@@ -268,7 +268,7 @@
         font-size: 1.5vw;
         color: #50565c;
         text-align: center;
-        margin-top: 2vh;
+        margin-top: 20vh;
         width: 67vw;
     }
 
@@ -281,20 +281,20 @@
     }
 
     .btn-start {
+           background-color: #21b3e1;
+        border-radius: 2vw;
+        color: #fff;
+        cursor: pointer;
         direction: rtl;
-        font-family: 'Karantina', cursive;
-        color: white;
+        font-family: Karantina, cursive;
+        font-size: 6vmin;
+        height: 6vh;
+        margin-top: 52vh;
+        padding: 2vh;
         position: absolute;
         right: 50%;
-        transform: translateX(50%);
-        margin-top: 71vh;
-        width: 18vw;
-        height: 6vh;
-        padding: 2vh;
         text-align: center;
-        font-size: 6vmin;
-        border-radius: 5vw;
-        background-color: #21b3e1;
-        cursor: pointer;
+        transform: translateX(50%);
+        width: 18vw;
     }
 }
