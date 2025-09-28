@@ -33,7 +33,7 @@ function Cards({ data, title, updateCompleted, index, dataType }) {
     const hideNextButton = (
         (isQuiz && (userAnswers[currentIndex] === undefined || !isCorrectAnswer))
         || ((dataType === 'AbilitiesData' && currentItem.id === 4 && !diagramCompleted))
-        || ((dataType === 'TableData' && currentItem.id === 1 && !tableCompleted))
+        || ((dataType === 'TableData' && currentItem.id === 5 && !tableCompleted))
     );
     // פונקציה לעדכון sessionStorage בכל שינוי
     const saveProgress = (newData = {}) => {
@@ -131,7 +131,7 @@ function Cards({ data, title, updateCompleted, index, dataType }) {
 
                 {dataType === 'AbilitiesData' && currentItem.id === 4 ? (
                     <Diagram onComplete={handleDiagramComplete} />
-                ) : dataType === 'TableData' && currentItem.id === 1 ? (
+                ) : dataType === 'TableData' && currentItem.id === 5 ? (
                     <TableCards onComplete={handleTableComplete} />
                 ) : (
                     <>

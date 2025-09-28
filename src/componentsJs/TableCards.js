@@ -9,42 +9,59 @@ function TableCards({ onComplete }) {
     const CardsItems = ["מטרת המופע", "משתתפים", "אחריות, הובלה ומיקום", "תוצרי המופע", "מהלך המופע"];
 
     const popUpTextCard = [
-        <>התאמת הצרכים והמענים של הרשות אל מול תרחישי הייחוס השונים בתיאום עם הגופים אשר מהווים מכפיל כוח עבור הרשות בחירום.</>,
-        <>קנ“ר ורמ“ד רשויות מחוז, מנהלי המכלולים ברשות, מנהלי מחוזות משרדי ממשלה רווחה + חינוך / מפקחים מחוזיים, מנהל אגף הנוער ברשות, מנהל ההתנדבות מ‘ החינוך אם אינו בתקן, ארגוני מגזר שלישי ברות נציג מוביל מכל ארגון, נציגי מגזר שני ברשות נציג מוביל מכל ארגון, נציגי מכינות קדם צביאות (אם קיימות בגזרת הרשות), נציגי השכלה גבוהה בגזרת הרשות, מובילי דעת קהל.</>,
+        <>התאמת המענים אל מול צרכי הרשות וביחס לתרחישי הייחוס השונים בתיאום עם הגופים אשר מהווים מכפיל כוח עבור הרשות בחירום.</>,
+        <>
+            קנ“ר ורמ“ד רשויות, מנהלי המכלולים ברשות, מנהלי מחוזות משרדי ממשלה (רווחה + חינוך)/ מפקחים מחוזיים, מנהל אגף הנוער ברשות, מנהל ההתנדבות מ‘ החינוך (אם אינו בתקן), ארגוני מגזר שלישי ברשות, נציגי מגזר שני ברשות נציג מוביל מכל ארגון, נציגי מכינות קדם צביאות (אם קיימות בגזרת הרשות), נציגי השכלה גבוהה בגזרת הרשות, מובילי דעת קהל.
+            <br />
+            <br />
+            *בהתאם למשאבים והשותפים הקיימים בכל רשות מקומית.
+        </>,
         <ul>
-            <li>העמקת ההכרות בין כלל הגופים</li>
-            <li>שיח ישיר בין המחוז, הארגונים ועמותות מרכזיות ברשות.</li>
-            <li>ביסוס יחסי הגומלין ושיתופי פעולה בין מגזריים והרחבת מעגל השותפויות.</li>
-            <li>סנכרון הפעילות בחירום</li>
-            <li>התאמת הצורך אל מול המענה הקיים</li>
+            <li>בראשות: ראש הרשות/ מנכ“ל</li>
+            <li>מיקום : מבנה רשותי</li>
+            <li>שעות : כשעתיים</li>
+            <li>אחריות הכנת המופע : קב"ט ורכז ההתנדבות הרשותי בשיתוף הקנ"ר
+            </li>
+            <li>תדירות : עד חודש טרם אימון/ ביקורת
+                רשותית, פעם בשנה
+            </li>
         </ul>,
         <ul>
-            <li>פתיחה של ראש הרשות/ מנכ“ל 10-15 דק‘.</li>
-            <li>סקירת תרחישי הייחוס השונים (פקע“ר) 20-30 דק‘.</li>
-            <li>הצגת יכולות הרשות קב“ט 30 דק‘</li>
-            <li>סבב יכולות ומענים של כלל הפורום 30-50 דק‘.</li>
-            <li>מיפוי הצרכים והגדרת מסמך מסדר לשיתוף פעולה אל מול התרחישים השונים 20 דק‘.</li>
-            <li>סיכום ונקודות להמשך שיח פרטני ראש הרשות 10 דק‘</li>
+            <li>העמקת ההכרות בין כלל הגופים
+            </li>
+            <li>חיזוק שיתוף הפעולה בין המחוז, רכז ההתנדבות והארגונים הפועלים בגזרת הרשות.
+            </li>
+            <li>סנכרון הפעילות בחירום.
+            </li>
+            <li>התאמת הצורך אל מול המענה הקיים.
+            </li>
         </ul>,
         <ul>
-            <li>בראשות ראש הרשות/ מנכ“ל</li>
-            <li>מיקום : מבנה רשות</li>
-            <li>שעות : עד שעתיים מופע</li>
-            <li>אחריות הכנת המופע : קב“ט ורכז ההתנדבות בשת“פ קנ“ר</li>
-            <li>תדירות : עד חודש טרם אימון / ביקור רשותית פעם בשנה</li>
+            <li>פתיחה של ראש הרשות/ מנכ“ל - 15 דקות.
+            </li>
+            <li>סקירת תרחישי הייחוס השונים (פקע“ר) - 30 דקות.
+            </li>
+            <li>הצגת יכולות הרשות (קב"ט) - 30 דקות.
+            </li>
+            <li>סבב יכולות ומענים של כלל הפורום - 30 עד 50 דקות.
+            </li>
+            <li>מיפוי הצרכים והגדרת מסמך מסדר לשיתוף פעולה אל מול התרחישים השונים - 20 דקות.
+            </li>
+            <li>סיכום ונקודות להמשך שיח פרטני (ראש הרשות) - 10 דקות.
+            </li>
         </ul>,
     ];
 
     // טעינת ההתקדמות מה-sessionStorage
-  useEffect(() => {
-    const storedReadItems = JSON.parse(sessionStorage.getItem('readItemsTableCards')) || [];
-    setReadItems(storedReadItems);
+    useEffect(() => {
+        const storedReadItems = JSON.parse(sessionStorage.getItem('readItemsTableCards')) || [];
+        setReadItems(storedReadItems);
 
-    if (storedReadItems.length === CardsItems.length) {
-        // מסמן סיום שולחן עגול
-        if (typeof onComplete === 'function') onComplete();
-    }
-}, []);
+        if (storedReadItems.length === CardsItems.length) {
+            // מסמן סיום שולחן עגול
+            if (typeof onComplete === 'function') onComplete();
+        }
+    }, []);
 
     const handleClose = () => {
         if (selectedItem !== null && !readItems.includes(selectedItem)) {
@@ -62,21 +79,33 @@ function TableCards({ onComplete }) {
     return (
         <div className="TableCards">
             <div className='text-table'>
-                יש ללחוץ על הכרטיסיות כדי לתאם ציפיות וללמוד על מטרות ׳שולחן עגול׳ ברשות המקומית
+                יש ללחוץ על הכרטיסיות כדי ללמוד על המופע ׳שולחן עגול׳ ברשות המקומית
             </div>
 
             <div className='cards-container'>
-                {CardsItems.map((item, index) => (
-                    <div key={index} className='card-item-wrapper'>
-                        <div
-                            className={`card-item ${readItems.includes(index) ? 'readDivCard' : ''}`}
-                            onClick={() => setSelectedItem(index)}
-                        >
-                            {item}
+                {CardsItems.map((item, index) => {
+                    const isRead = readItems.includes(index);
+                    const isNext = !readItems.includes(index) && (index === 0 || readItems.includes(index - 1));
+
+                    const canClick = isRead || isNext;
+
+                    return (
+                        <div key={index} className='card-item-wrapper'>
+                            <div
+                                className={`card-item 
+                        ${isRead ? 'readDivCard' : ''} 
+                        ${!canClick ? 'disabledCard' : ''}
+                    `}
+                                onClick={() => canClick ? setSelectedItem(index) : null}
+                            >
+                                {item}
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    )
+                })}
             </div>
+
+
 
             <img
                 src={process.env.PUBLIC_URL + '/assests/imgs/table.png'}
@@ -86,7 +115,7 @@ function TableCards({ onComplete }) {
 
             {selectedItem !== null && (
                 <PopUp
-                    title={CardsItems[selectedItem]} 
+                    title={CardsItems[selectedItem]}
                     content={popUpTextCard[selectedItem]}
                     onClose={handleClose}
                 />

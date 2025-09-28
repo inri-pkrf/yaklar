@@ -46,6 +46,7 @@
         position: relative;
         margin-top: 4vh;
         min-height: 0;
+        line-height: 4vh;
         direction: rtl;
     }
 
@@ -234,6 +235,7 @@
         width: 56vw;
         height: 47%;
         top: 2vh;
+        line-height: 4vh;
         position: relative;
         direction: rtl;
         overflow-y: auto;

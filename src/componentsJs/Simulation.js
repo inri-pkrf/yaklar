@@ -60,11 +60,9 @@ function Simulation() {
                 <div className="text-continer-body">
                     <div className='title-div-body'></div>
                     <div className='into-text-Simulation'>
-                        את/ה מש"ק התנדבות ביקל"ר ברשות המקומית. בחלק מתהליך מבצעי שנקרא מיצוי יכולות המרחב האזרחי, אנו נדרשים לחזק את הרשות המקומית במתן פתרונות על בסיס משאבי הקהילה.
+                        את/ה מש"ק התנדבות ביקל"ר ברשות המקומית. כחלק מהתהליך המבצעי מיצוי יכולות המרחב האזרחי, אנו נדרשים לחזק את הרשות המקומית במתן פתרונות על בסיס משאבי הקהילה.
                         <br /><br />
-                        במהלך המלחמה התקבלו דרישות רבות בעקבות פערים ברשות המקומית.
-                        בהערכת המצב הנחה ראש הרשות לגייס כוח אדם להשלמת פערי מהנדסים ברשות למכלול הנדסה.
-
+                        אנחנו נמצאים במצב חירום. ראש הרשות הנחה בהערכת המצב לגייס כוח אדם למכלול הנדסה ותשתיות עקב פערי מהנדסים קריטיים.
                         <div className='form-Simulation'>
                             <div className="form-row">
                                 <label className="form-label">  מה שמך?</label>
@@ -89,13 +87,13 @@ function Simulation() {
                                         <option key={index} value={city}>{city}</option>
                                     ))}
                                 </select> */}
-                                    <input
-                                        type="text"
-                                        className="form-input"
-                                        value={municipality}
-                                        onChange={(e) => setMunicipality(e.target.value)}
-                                        placeholder="הכנס את הרשות כאן"
-                                    />
+                                <input
+                                    type="text"
+                                    className="form-input"
+                                    value={municipality}
+                                    onChange={(e) => setMunicipality(e.target.value)}
+                                    placeholder="הכנס את הרשות כאן"
+                                />
                             </div>
 
                             {errorMessage && <div className="error-message">{errorMessage}</div>}

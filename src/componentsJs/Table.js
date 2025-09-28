@@ -7,12 +7,13 @@ function Table() {
         const completed = JSON.parse(sessionStorage.getItem('completed')) || [false, false, false, false];
         completed[index] = true;
         sessionStorage.setItem('completed', JSON.stringify(completed));
+        
     };
 
     return (
         <Cards 
             data={TableData}
-            title='שולחן עגול ברשות המקומית'
+            title='שולחן עגול ברשות המקומית והוועדה להתנדבות'
             dataType="TableData"
             updateCompleted={updateCompleted}
             index={2}
