@@ -233,7 +233,7 @@
         color: #3b3a3a;
         text-align: right;
         width: 56vw;
-        height: 47%;
+        max-height: 45vh;
         top: 2vh;
         line-height: 4vh;
         position: relative;
