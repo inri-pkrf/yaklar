@@ -259,7 +259,7 @@
     }
 
     .logos {
-        width: 4vw;
+        width: 3.5vw;
         height: auto;
         position: absolute;
         right: 6vw;
@@ -272,7 +272,7 @@
 
     .title2 {
         font-family: 'Karantina';
-        font-size: 4vw;
+        font-size: 3vw;
         color: black;
         direction: rtl;
         position: absolute;

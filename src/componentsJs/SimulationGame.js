@@ -15,6 +15,13 @@ function SimulationGame({ municipality, name }) {
     const chatEndRef = useRef(null);
 
     const currentQuestion = TextData[currentQuestionIndex];
+    function shuffleArray(array) {
+        return array
+            .map((item) => ({ value: item, sort: Math.random() }))
+            .sort((a, b) => a.sort - b.sort)
+            .map((item) => item.value);
+    }
+
 
     // הוסיפי ליד שאר ה-refs:
     const didInitRef = useRef(false);
