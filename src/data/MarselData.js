@@ -9,7 +9,7 @@ const MarselData = [
                 צפו בסרטון הבא להיכרות עם עם המרס״ל - מרכז הסיוע לאזרח.
             </>
         ],
-        videoSrc: `${process.env.PUBLIC_URL}/assests/videos/היכרות המרסל.mp4`
+        videoSrc: `${process.env.PUBLIC_URL}/assests/videos/היכרות המרסל_תיקון (2).mp4`
     },
     {
         id: 2,
