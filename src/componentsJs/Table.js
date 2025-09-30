@@ -13,7 +13,7 @@ function Table() {
     return (
         <Cards 
             data={TableData}
-            title='שולחן עגול ברשות המקומית והוועדה להתנדבות'
+            title='הועדה להתנדבות ושולחן עגול ברשות המקומית'
             dataType="TableData"
             updateCompleted={updateCompleted}
             index={2}
